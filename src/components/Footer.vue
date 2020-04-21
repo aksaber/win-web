@@ -16,7 +16,8 @@ export default {
 <style lang="scss">
 .footer {
     background: #FCFAFA;
-    padding: 1.5rem;
+    padding: 0.24rem;
+    font-size: 16px;
     .footer-content {
         margin: 0 auto;
         font-weight: bold;
@@ -24,10 +25,10 @@ export default {
             width: 1140px;
         }
         .footer-content-top {
-            padding-bottom: 1rem;
+            padding-bottom: 0.16rem;
         }
         .footer-content-bottom {
-            padding-top: 1rem;
+            padding-top: 0.16rem;
             border-top: 1px solid rgba(0, 0, 0, .1);
         }
     }

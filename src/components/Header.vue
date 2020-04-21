@@ -8,12 +8,36 @@
             <li><a href="share.html">博文分享</a></li>
             <li><a href="aboutUs.html">联系我们</a></li>
         </ul>
+        <div class="collapseDiv">
+            <img
+                src="../assets/collapse.png"
+                class="collapseImg"
+                @click="showMenu"
+            />
+            <div class="mobile-menu" v-show="isMenu">
+                <li><a href="home.html">首页</a></li>
+                <li><a href="geoCourse.html">风水课程</a></li>
+                <li><a href="magicCourse.html">奇门课程</a></li>
+                <li><a href="share.html">博文分享</a></li>
+                <li><a href="aboutUs.html">联系我们</a></li>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    data() {
+        return {
+            isMenu: false
+        }
+    },
+    methods: {
+        showMenu() {
+            this.isMenu = !this.isMenu;
+        }
+    }
 }
 </script>
 
@@ -35,16 +59,18 @@ export default {
     }
     .header-logo {
         // margin-top: 34px;
-        margin-top: 0.67rem;
+        margin-top: 0.15rem;
         // width: 0.98rem;
         // height: 0.98rem;
     }
     ul {
-        // margin-top: 97px;
-        margin-top: 0.67rem;
-        font-size: 1rem;
+        margin-top: 0.15rem;
+        font-size: 0.16rem;
         font-weight: bold;
         line-height: 40px;
+        @media (max-width: 768px) {
+            display: none;
+        }
         li {
             float: left;
             // padding: 0 30px;
@@ -56,6 +82,24 @@ export default {
         a {
             cursor: pointer;
             color: #000;
+        }
+    }
+    .collapseDiv {
+        position: relative;
+        .collapseImg {
+            width: 32px;
+            height: 32px;
+            margin-top: 0.2rem;
+            display: none;
+            @media (max-width: 768px) {
+                display: block;
+            }
+        }
+        .mobile-menu {
+            position: absolute;
+            top: 58px;
+            right: 0;
+            width: 100px;
         }
     }
 }    
