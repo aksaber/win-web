@@ -1,26 +1,28 @@
 <template>
-    <div class="header">
-        <img src="../assets/logo.png" alt="" class="header-logo">
-        <ul>
-            <li><a href="home.html">首页</a></li>
-            <li><a href="geoCourse.html">风水课程</a></li>
-            <li><a href="magicCourse.html">奇门课程</a></li>
-            <li><a href="share.html">博文分享</a></li>
-            <li><a href="aboutUs.html">联系我们</a></li>
-        </ul>
-        <div class="collapseDiv">
-            <img
-                src="../assets/collapse.png"
-                class="collapseImg"
-                @click="showMenu"
-            />
-            <div class="mobile-menu" v-show="isMenu">
+    <div>
+        <div class="header">
+            <img src="../assets/logo.png" alt="" class="header-logo">
+            <ul>
                 <li><a href="home.html">首页</a></li>
                 <li><a href="geoCourse.html">风水课程</a></li>
                 <li><a href="magicCourse.html">奇门课程</a></li>
                 <li><a href="share.html">博文分享</a></li>
                 <li><a href="aboutUs.html">联系我们</a></li>
+            </ul>
+            <div class="collapseDiv">
+                <img
+                    src="../assets/collapse.png"
+                    class="collapseImg"
+                    @click="showMenu"
+                />
             </div>
+        </div>
+        <div class="mobile-menu" :style="{transform: isMenu ? 'rotateX(0deg)' : 'rotateX(90deg)', height: isMenu ? '244px' : 0}">
+            <p><a href="home.html">首页</a></p>
+            <p><a href="geoCourse.html">风水课程</a></p>
+            <p><a href="magicCourse.html">奇门课程</a></p>
+            <p><a href="share.html">博文分享</a></p>
+            <p><a href="aboutUs.html">联系我们</a></p>
         </div>
     </div>
 </template>
@@ -54,6 +56,7 @@ export default {
     background-position: 50% 50%;
     padding: 0 18%;
     background: #FCFAFA;
+    padding-bottom: 0.15rem;
     @media only screen and (max-width: 768px) {
         padding: 0 0.5rem;
     }
@@ -95,12 +98,24 @@ export default {
                 display: block;
             }
         }
-        .mobile-menu {
-            position: absolute;
-            top: 58px;
-            right: 0;
-            width: 100px;
-        }
     }
-}    
+}
+.mobile-menu {
+    text-align: right;
+    font-size: 16px;
+    padding: 5px 0.5rem 0 0.5rem;
+    transition: all 0.3s ease-in;
+    a {
+        color: #000;
+        font-weight: bold;
+    }
+    p {
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+    }
+    &:after {
+        content: '';
+        clear: both;
+    }
+}
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div id="share">
       <Header />
-      <!-- <div v-html="data"></div> -->
       <div class="share-first">
           <div class="share-first-content flex">
             <!-- <img :src="data[0] ? data[0].coverImage : null" alt=""> -->
@@ -26,14 +25,15 @@
         <div class="container row">
             <div
                 class="share-item col-xs-12 col-xl-6 col-lg-12"
-                v-for="(item, index) in shareItem"
+                v-for="(item, index) in data"
                 :key="index"
+                @click="gotoBlog(item)"
             >
                 <div class="flex">
                     <img src="../../assets/home-swiper.png" />
                     <div class="share-item-right">
-                        <p>标题标题</p>
-                        <div>简介简介</div>
+                        <p>{{ item.title }}</p>
+                        <div>{{ item.abstract }}</div>
                     </div>
                 </div>
             </div>
@@ -51,8 +51,7 @@ export default {
   name: 'Share',
   data() {
       return {
-          data: [],
-          shareItem: Array(5)
+          data: []
       }
   },
   components: { Header, Footer },
@@ -61,11 +60,14 @@ export default {
   },
   methods: {
       getData() {
-          const url = 'http://localhost:3000/blog/get';
+          const url = 'http://localhost:3000/blog/list';
           fetch(url).then(response => response.json())
             .then(res => {
                 this.data = res.data;
             })
+      },
+      gotoBlog(blog) {
+          window.location = `blogInfo.html?id=${blog.id}`;
       }
   }
 }
