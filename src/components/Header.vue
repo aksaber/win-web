@@ -55,7 +55,7 @@ export default {
     background-size: cover;
     background-position: 50% 50%;
     padding: 0 18%;
-    background: #FCFAFA;
+    // background: #FCFAFA;
     padding-bottom: 0.15rem;
     @media only screen and (max-width: 768px) {
         padding: 0 0.5rem;
@@ -84,7 +84,8 @@ export default {
         }
         a {
             cursor: pointer;
-            color: #000;
+            // color: #000;
+            color: #fff;
         }
     }
     .collapseDiv {

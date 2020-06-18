@@ -51,6 +51,11 @@ a:active {
     padding-left: 15px;
 }
 
+.col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
 @media (min-width: 992px) {
     .container {
         max-width: 960px;
@@ -68,5 +73,44 @@ a:active {
     .col-xl-6 {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+}
+
+@keyframes scale-up-two {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    40% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    100% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+
+@keyframes alltuchtopdown {
+    0% {
+        -webkit-transform: rotateX(0deg) translateY(0px);
+        -moz-transform: rotateX(0deg) translateY(0px);
+        -ms-transform: rotateX(0deg) translateY(0px);
+        -o-transform: rotateX(0deg) translateY(0px);
+        transform: rotateX(0deg) translateY(0px);
+    }
+    50% {
+        -webkit-transform: rotateX(0deg) translateY(-10px);
+        -moz-transform: rotateX(0deg) translateY(-10px);
+        -ms-transform: rotateX(0deg) translateY(-10px);
+        -o-transform: rotateX(0deg) translateY(-10px);
+        transform: rotateX(0deg) translateY(-10px);
+    }
+    100% {
+        -webkit-transform: rotateX(0deg) translateY(0px);
+        -moz-transform: rotateX(0deg) translateY(0px);
+        -ms-transform: rotateX(0deg) translateY(0px);
+        -o-transform: rotateX(0deg) translateY(0px);
+        transform: rotateX(0deg) translateY(0px);
     }
 }
