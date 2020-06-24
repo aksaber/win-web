@@ -1,6 +1,13 @@
 <template>
   <div id="share">
       <Header />
+      <div class="share-category">
+          <h3>博客分类</h3>
+          <li>分类1</li>
+          <li>分类2</li>
+          <li>分类3</li>
+          <li>分类4</li>
+      </div>
       <div class="share-first">
           <div class="share-first-content flex">
             <!-- <img :src="data[0] ? data[0].coverImage : null" alt=""> -->
@@ -13,7 +20,7 @@
             </div>
             <div class="share-first-title_2 flex">
                 <img src="../../assets/avatar.png" style="width: 60px; height: 60px" />
-                <div>
+                <div class="share-author">
                     <div>{{ data[0] ? data[0].author : null }}</div>
                     <span>风水大师</span>
                 </div>
@@ -76,9 +83,14 @@ export default {
 <style lang="scss">
 #share {
     background: #FCFAFA;
+    .share-category {
+        position: fixed;
+        top: 50px;
+        left: 15px;
+    }
     .share-first {
         margin: 0 auto;
-        padding: 0.64rem 0;
+        padding: 64px 0;
         @media only screen and (min-width: 768px) {
             width: 800px;
         }
@@ -116,7 +128,7 @@ export default {
                 background: #FCFAFA;
                 padding: 25px 60px;
                 border-radius: 150px;
-                font-size: 0.25rem;
+                font-size: 25px;
                 z-index: 1;
                 flex: 0 0 75%;
                 max-width: 75%;
@@ -129,7 +141,7 @@ export default {
                 div {
                     cursor: pointer;
                     transition: transform 0.5s;
-                    font-size: 0.6rem;
+                    font-size: 60px;
                     font-weight: bold;
                     &:hover {
                         transform: scale(1.01);
@@ -142,10 +154,29 @@ export default {
                 max-width: 50%;
                 box-sizing: border-box;
                 width: 100%;
-                font-size: 0.18rem;
+                font-size: 18px;
                 @media (max-width: 992px) {
                     max-width: 100%;
                     display: block!important;
+                }
+                p {
+                    color: #404040;
+                    font-size: 22px;
+                }
+                img {
+                    margin-right: 10px;
+                }
+                .share-author {
+                    div {
+                        color: #212529;
+                        font-size: 18px;
+                        margin-top: 5px;
+                        font-weight: bold;
+                    }
+                    span {
+                        color: #818181;
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -189,11 +220,12 @@ export default {
             .share-item-right {
                 margin-left: 10px;
                 p {
-                    font-size: 0.26rem;
+                    font-size: 26px;
                     font-weight: bold;
+                    margin-bottom: 8px;
                 }
                 div {
-                    font-size: 12px;
+                    font-size: 16px;
                     color: #404040;
                 }
             }
