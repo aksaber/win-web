@@ -1,68 +1,215 @@
 <template>
     <div id="home" >
         <Header />
-        <div class="home-swiper swiper-container" v-show="swiperShow">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="../../assets/timg1.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/timg2.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="../../assets/timg3.jpg" />
-                </div>
-            </div>
-        </div>
-        <div class="home-paipan" v-html="paipan"></div>
+        <!-- <div class="home-paipan" v-html="paipan"></div> -->
         <!-- 标题 -->
-        <section class="flex" style="padding: 0 5%" data-aos="zoom-in">
-            <img src="../../assets/shedo2.png" class="img-banner" />
-            <div style="font-size: 56px; font-weight: bold; flex: 0 0 30%; max-width: 30%">
-                <p style="color: #fff">Make your shedule work for your life</p>
-            </div>
-            <div>
-                <img src="../../assets/h1-1.png" class="img-banner2" />
+        <section class="flex home-top">
+            <div class="container flex">
+                <img src="../../assets/master.png" data-aos="zoom-in" data-aos-duration="400">
+                <div class="home-top-right">
+                    <div style="margin-left: 40px">
+                        <div style="font-size: 48px">HELLO,</div>
+                        <div style="font-size: 32px">a bit about me:</div>
+                    </div>
+                    <div class="home-top-img flex">
+                        <div class="home-top-img-1">关于我</div>
+                        <div class="home-top-img-2">风水课程</div>
+                        <div class="home-top-img-3">奇门占卜</div>
+                    </div>
+                    <div class="home-top-intro">
+                        Hi, 我Hibi (嗨比)，32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager.两年前，一次偶然的机遇接触到了本门派的风水课程，随后在同门师兄的引荐下学习了奇门遁甲诸葛术，从此踏上易学学习推广之路，现在仍在路上。
+                    </div>
+                </div>
             </div>
         </section>
         <!-- 标题 End -->
         <!-- 上贰 -->
-        <section style="font-size: 16px; text-align: center; width: 1140px; margin: 0 auto">
-            <div>With xipper landing page you can easily present your 
-digital projects in realistic environments. upload your design and edit the final image composition as you like</div>
-            <div class="flex">
-                <div class="col-4">
-                    <div class="top1-item">
-                        <p style="color: #30323d; font-size: 24px">Shedule Data</p>
-                        <p style="color: #878991">Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.</p>
+        <section class="home-two">
+            <div class="container">
+                <div class="home-two-line-1">
+                    <div style="margin-bottom: 5px">风水和奇门，这两门课都是我从零基础开始深入学习的，他们逐渐改变了我的生活。</div>
+                    <div class="flex" style="align-items: center">
+                        想知道更多背后的故事请点击——————
+                        <img src="../../assets/click-circular.png" @click="jumpUrl">
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="top1-item">
-                        <p style="color: #30323d; font-size: 24px">Shedule Data</p>
-                        <p style="color: #878991">Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.</p>
+                <div class="home-two-line-2">
+                    <div style="margin-bottom: 5px">明师难遇，通过这个平台，我希望给喜欢易学的朋友提供一个指引，同时也乐于分享</div>
+                    <div style="display: flex; align-items: center;">
+                        我一路学习的见闻和心得，共勉，感恩<img src="../../assets/emoji.png">
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="top1-item">
-                        <p style="color: #30323d; font-size: 24px">Shedule Data</p>
-                        <p style="color: #878991">Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.</p>
+                <div class="home-two-line-3 flex">
+                    <img src="../../assets/home-leftWing.png" class="leftWing" width="35" height="630" data-aos="fade-up">
+                    <div style="position: relative" data-aos="fade-up">
+                        <img src="../../assets/home-centerWing1.png" alt="">
+                        <img src="../../assets/home-centerWing2.png" class="centerWing-flower" width="222" height="230">
+                        <div class="centerWing-element">
+                            <img src="../../assets/home-centerWing3.png">
+                            <img src="../../assets/home-centerWing4.png">
+                        </div>
+                        <img src="../../assets/home-centerWing5.png" class="centerWing-footer">
+                    </div>
+                    <img src="../../assets/home-rightWing.png" class="leftWing" width="35" height="630" data-aos="fade-up">
+                    <img src="../../assets/cloud-left.png" class="cloud-left" data-aos="fade-up" data-aos-duration="2000">
+                    <img src="../../assets/cloud-right.png" class="cloud-right" data-aos="fade-up" data-aos-duration="2000">
+                </div>
+                <div class="home-two-line-4">
+                    <div class="home-line4-content">
+                        <img src="../../assets/home-5elements.png" width="660" height="636">
+                        <div class="line4-huo">
+                            <p>针对毫无</p>
+                            <p>基础但是</p>
+                            <p>有兴趣的</p>
+                            <p>年轻用户</p>
+                        </div>
+                        <div class="line4-mu">
+                            <p>化煞为奴</p>
+                            <p>为贵</p>
+                            <p>用神有力</p>
+                        </div>
+                        <div class="line4-tu">
+                            <p>避开凶宅</p>
+                            <p>趋吉避凶</p>
+                            <p>调整风水</p>
+                        </div>
+                        <div class="line4-shui">
+                            <p>催财催丁</p>
+                            <p>催寿催桃</p>
+                            <p>花自己就</p>
+                            <p>能搞定</p>
+                        </div>
+                        <div class="line4-jin">
+                            <p>租房买房</p>
+                            <p>公司商铺</p>
+                            <p>风水好坏</p>
+                            <p>不求人</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="../../assets/cloud-right.png" class="home-two-line-5" data-aos="fade-up" data-aos-duration="2000">
+            </div>
+        </section>  
+        <!-- 上贰 End -->
+        <!-- 上叁 -->
+        <section class="home-three">
+            <div class="container">
+                <img src="../../assets/home-three.png" style="max-width: 100%">
+                <img
+                    src="../../assets/cloud-left.png"
+                    class="left"
+                    style="margin-left: -95px; display: block"
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                >
+            </div>
+        </section>
+        <!-- 上叁 End -->
+        <!-- 上肆 -->
+        <section class="home-four">
+            <div class="container flex">
+                <img src="../../assets/home-fourLeft.png" width="189" height="398" style="margin-top: 280px">
+                <div class="flex" style="flex-direction: column; align-items: center; flex: 1">
+                    <div class="home-four-title">
+                        <div class="flex" style="align-items: flex-end; margin-bottom: 30px">
+                            <img src="../../assets/home-fourTop.png">
+                            <span style="font-size: 48px; margin-bottom: 10px">奇门占卜</span>
+                        </div>
+                        <div style="font-size: 28px; text-align: center">Hibi风水奇门工作坊--奇门遁甲简介</div>
+                        <div style="width: 470px">
+                            <p>1️.奇门遁甲古时用于布兵打仗称之为帝王之术，现代生活用于生活百事预测，趋吉避凶</p>
+                            <p>2️.奇门遁甲是一个时空模型，地盘不动，神盘、天盘、人盘每个时辰（每2小时）转动一次，得到的结果即发生变化，发问时间很关键</p>
+                            <p>3.奇门遁甲市面上五花八门，真真假假，本门派为诸葛奇门术，市面仅有一家，诸葛亮是本门派的祖师爷，法不轻传</p>
+                            <p>4.没有一个门派的占卜术可以做到百分之百准确，《了凡四训》都告诉我们可以改命的道理，当下一个善念都会影响结果和走向，相由心生，境由心造</p>
+                        </div>
+                        <div class="center" style="margin: 50px 0">
+                            <img src="../../assets/paipan.gif" width="450">
+                        </div>
+                    </div>
+                    <div style="color: rgb(140, 188, 162); font-size: 20px">
+                        <div>抉择、健康、升迁、感情、投资等生活百事，我都可以</div>
+                        <div>根据您当下的排盘解读冥冥之中的天意，告诉您最优的选择</div>
+                    </div>
+                </div>
+                <img src="../../assets/home-centerWing2.png" width="222" height="203">
+            </div>
+            <div class="container">
+                <div class="home-four-footer">
+                    <img src="../../assets/five-select.png" style="width: 100%">
+                    <div class="four-1">做抉择的时候，哪个更好？</div>
+                    <div class="four-2">这次手术会顺利吗？</div>
+                    <div class="four-3">这段婚姻会离婚收场吗？</div>
+                    <div class="four-4">公司晋升我有没有希望？</div>
+                    <div class="four-5">朋友拉我参与一项投资，能不能做？</div>
+                </div>
+            </div>
+        </section>
+        <!-- 上肆 End -->
+        <!-- 上伍 -->
+        <section class="home-five">
+            <div class="container flex">
+                <img src="../../assets/cloud-left.png" class="home-five-left" data-aos="fade-up" data-aos-duration="2000">
+                <div class="home-five-center">
+                    <div>奇门占卜可以看到冥冥之中的天意</div>
+                    <div>开盘即可知吉凶做出更利于我们的选择</div>
+                </div>
+                <img src="../../assets/cloud-right.png" class="home-five-right" data-aos="fade-up" data-aos-duration="2000">
+            </div>
+        </section>
+        <!-- 上伍 End -->
+        <!-- 上陆 -->
+        <section class="home-six">
+            <div class="container center">
+                <img src="../../assets/home-six.png" alt="">
+                <img src="../../assets/mountain.png" style="margin-top: 40px" data-aos="fade-up">
+            </div>
+        </section>
+        <!-- 上陆 End -->
+        <!-- 底部 -->
+        <section class="home-footer">
+            <div class="container">
+                <div class="home-footer-title">联系我：</div>
+                <div class="flex" style="justify-content: space-between">
+                    <div class="home-footer-flex home-footer-left">
+                        <div>
+                            <img src="../../assets/douyin-icon.png">
+                            抖音：hibifsqm
+                        </div>
+                        <div>
+                            <img src="../../assets/sina-icon.png">
+                            微博：Hibi风水奇门工作坊
+                        </div>
+                        <div>
+                            <img src="../../assets/youtube-icon.png">
+                            YouTube：Hibi风水奇门工作坊
+                        </div>
+                    </div>
+                    <div class="home-footer-flex home-footer-center">
+                        <div>
+                            <img src="../../assets/wechat-icon.png">
+                            微信号：caramel0808
+                        </div>
+                        <div>
+                            <img src="../../assets/xcx-icon.png">
+                            小程序：Hibi风水奇门工作坊
+                        </div>
+                        <div>
+                            <img src="../../assets/email-icon.png">
+                            邮箱：hibifsqm@gmail.com
+                        </div>
+                    </div>
+                    <div class="home-footer-right">
+                        <img src="../../assets/wechat-code.png" style="margin-bottom: 5px">
+                        <img src="../../assets/xcx-code.png" alt="">
                     </div>
                 </div>
             </div>
         </section>
-        <!-- 上贰 End -->
-        <!-- 上叁 -->
-        <section></section>
-        <!-- 上叁 End -->
-        <Footer />
+        <!-- 底部 End -->
     </div>
 </template>
 
 <script>
-import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
-import 'swiper/js/swiper.min.js'
 import 'aos/dist/aos.css'
 import AOS from 'aos/dist/aos.js'
 import Header from '@/components/Header.vue'
@@ -71,36 +218,26 @@ export default {
     name: 'Home',
     data() {
         return {
-            gua: {
-                years: '2020',
-                months: '04',
-                days: '23',
-                hours: '14',
-                mins: '3',
-                miao: '13',
-                R1: 'V1',
-                T1: 120
-            },
             paipan: '<b>',
-            swiperShow: false
         }
     },
     components: { Header, Footer },
     mounted() {
         // 初始化aos插件
-        AOS.init();
-        const swiper = new Swiper('.home-swiper', {
-            autoplay: true,
-        })
+        AOS.init({
+            duration: 2000
+        });
         // this.qimenShow();
     },
     methods: {
+        jumpUrl() {
+            
+        },
         qimenShow() {
             const url = 'http://localhost:3000/banner/paipan';
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(this.gua)
             }
             fetch(url, options).then(response => response.json())
                 .then(res => {
@@ -115,42 +252,262 @@ export default {
 
 <style lang="scss">
 #home {
-    background: #FCFAFA;
-    background-image: url('../../assets/h1-bg1.png');
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    .home-swiper {
-        font-size: 16px;
-        .swiper-slide {
-            img {
-                max-width: 100%;
-            }
-        }
-    }
+    background: #fff;
     .home-paipan {
         font-family: '宋体';
         font-size: 16px;
         // white-space: pre;
     }
-    .img-banner {
-        width: 220px;
-        height: 220px;
-        animation: scale-up-two 5s infinite linear;
+    .home-top {
+        background: rgb(188, 215, 196);
+        padding: 60px 0;
+        .container {
+            align-items: center;
+            justify-content: space-between;
+        }
+        .home-top-right {
+            width: 60%;
+            .home-top-img {
+                margin-top: 20px;
+                margin-bottom: 32px;
+                justify-content: space-between;
+                >div {
+                    border-radius: 50%;
+                    width: 150px;
+                    height: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                }
+                .home-top-img-1 {
+                    background: rgb(125, 211, 228);
+                }
+                .home-top-img-2 {
+                    background: rgb(172, 150, 214);
+                }
+                .home-top-img-3 {
+                    background: rgb(224, 170, 126);
+                }
+            }
+            .home-top-intro {
+                line-height: 25px;
+            }
+        }
     }
-    .img-banner2 {
-        animation: alltuchtopdown 1.5s ease-in-out 0s infinite alternate;
-        animation-duration: 3s;
+    .home-two {
+        padding: 60px 0;
+        background: #fff;
+        .home-two-line-1 {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 80px;
+            img {
+                border: 1px solid rgb(185, 189, 190);
+                padding: 2px;
+                border-radius: 50%;
+                margin-left: 5px;
+                cursor: pointer;
+                animation: scale-up-two 2s 0s infinite;
+            }
+        }
+        .home-two-line-2 {
+            width: 80%;
+            margin: 0 auto;
+            img {
+                margin-left: 5px;
+            }
+        }
+        .home-two-line-3 {
+            justify-content: space-between;
+            position: relative;
+            .leftWing {
+                margin-top: 100px;
+            }
+            .centerWing-flower {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+            }
+            .centerWing-element {
+                width: 486px;
+                position: absolute;
+                top: 500px;
+                left: 49px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .centerWing-footer {
+                width: 512px;
+                height: 57px;
+                position: absolute;
+                top: 771px;
+                left: 51px;
+            }
+            .cloud-left {
+                position: absolute;
+                bottom: 54px;
+                left: -95px;
+            }
+            .cloud-right {
+                position: absolute;
+                bottom: 185px;
+                right: -95px;
+            }
+        }
+        .home-two-line-4 {
+            .home-line4-content {
+                width: 660px;
+                height: 636px;
+                position: relative;
+                margin: 0 auto;
+                >div {
+                    position: absolute;
+                }
+                p {
+                    margin: 0;
+                    color: #fff;
+                }
+                .line4-huo {
+                    top: 59px;
+                    left: 276px;
+                }
+                .line4-mu {
+                    top: 212px;
+                    left: 85px;
+                }
+                .line4-tu {
+                    top: 216px;
+                    left: 502px;
+                }
+                .line4-shui {
+                    top: 476px;
+                    left: 148px;
+                }
+                .line4-jin {
+                    top: 476px;
+                    left: 441px;
+                }
+            }
+        }
+        .home-two-line-5 {
+            float: right;
+            margin-right: -95px;
+        }
     }
-    .top1-item {
-        transition: .5s;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 1px;
-        padding-bottom: 1px;
-        background-color: #fff;
-        &:hover {
-            box-shadow: 26px 24px 49px -22px rgba(158, 158, 158, 0.55)
+    .home-three {
+        text-align: center;
+        background: rgb(188, 215, 196);
+        padding-top: 50px;
+        margin-top: 20px;
+        padding-bottom: 40px;
+    }
+    .home-four {
+        background: #fff;
+        margin-top: 100px;
+        .container {
+            justify-content: space-between;
+        }
+        .home-four-title {
+            margin-top: -50px;
+            width: 470px;
+            p {
+                text-indent: 24px;
+            }
+        }
+        .home-four-footer {
+            margin: 80px auto;
+            position: relative;
+            width: 792px;
+            max-width: 100%;
+            >div {
+                position: absolute;
+                font-weight: bold;
+                font-size: 13px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: all .5s;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+            .four-1 {
+                left: 40px;
+                top: 28px;
+                width: 86px;
+            }
+            .four-2 {
+                left: 208px;
+                top: 28px;
+                width: 66px;
+            }
+            .four-3 {
+                left: 375px;
+                top: 28px;
+                width: 69px;
+            }
+            .four-4 {
+                left: 547px;
+                top: 28px;
+                width: 67px;
+            }
+            .four-5 {
+                left: 713px;
+                top: 28px;
+                width: 67px;
+            }
+        }
+    }
+    .home-five {
+        background: rgb(188, 215, 196);
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 50px 15px;
+            .home-five-left {
+                position: absolute;
+                left: -95px;
+                top: -50px;
+            }
+            .home-five-center {
+                width: 100%;
+                text-align: center;
+                font-size: 38px;
+            }
+            .home-five-right {
+                position: absolute;
+                right: -95px;
+                bottom: -50px;
+            }
+        }
+    }
+    .home-six {
+        padding: 50px 0;
+        img {
+            max-width: 100%;
+        }
+    }
+    .home-footer {
+        background: rgb(188, 215, 196);
+        padding: 80px 0;
+        .home-footer-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-indent: 41px;
+        }
+        .home-footer-flex {
+            >div {
+                display: flex;
+                align-items: center;
+                margin-bottom: 30px;
+                img {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .home-footer-right {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

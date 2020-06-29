@@ -1,8 +1,6 @@
 <template>
     <div class="footer">
         <div class="footer-content">
-            <div class="footer-content-top center">Copyright © 2019.Company name All rights reserved.</div>
-            <div class="footer-content-bottom center">Copyright © 2019.Company name All rights reserved.</div>
         </div>
     </div>
 </template>

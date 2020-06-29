@@ -82,7 +82,7 @@ export default {
 
 <style lang="scss">
 #share {
-    background: #FCFAFA;
+    background: rgb(188, 215, 196);
     .share-category {
         position: fixed;
         top: 50px;
