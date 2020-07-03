@@ -1,34 +1,33 @@
 <template>
   <div id="share">
       <Header />
-      <div class="share-category">
-          <h3>博客分类</h3>
-          <li>分类1</li>
-          <li>分类2</li>
-          <li>分类3</li>
-          <li>分类4</li>
-      </div>
       <div class="share-first">
           <div class="share-first-content flex">
             <!-- <img :src="data[0] ? data[0].coverImage : null" alt=""> -->
-            <img src="../../assets/home-swiper.png" class="share-first-coverImage">
+            <!-- <img :src="data[0] ? data[0].coverImage : require('../../assets/home-swiper.png')" class="share-first-coverImage"> -->
+            <img src="../../assets/blogPic.jpg" class="share-first-coverImage">
             <div class="share-first-title_1">
-                <div>{{ data[0] ? data[0].title : null }}</div>
+                <!-- <div @click="gotoBlog(data[0])">{{ data[0] ? data[0].title : null }}</div> -->
+                <div>一花一世界，一叶一菩提</div>
             </div>
             <div class="share-first-title_2">
-                <p>{{ data[0] ? data[0].abstract : null }}</p>
+                <!-- <p>{{ data[0] ? data[0].date : null }}</p> -->
+                <p>一物一太极</p>
+            </div>
+            <!-- <div class="share-first-title_3" v-if="data[0]">
+                <span v-for="item in data[0].tag">{{ item }}</span>
             </div>
             <div class="share-first-title_2 flex">
                 <img src="../../assets/avatar.png" style="width: 60px; height: 60px" />
                 <div class="share-author">
                     <div>{{ data[0] ? data[0].author : null }}</div>
-                    <span>风水大师</span>
+                    <span>{{ data[0] ? data[0].date : null }}</span>
                 </div>
-            </div>
+            </div> -->
           </div>
       </div>
 
-      <div style="background: #fff">
+      <div style="background: #fff; padding: 80px 0">
         <div class="container row">
             <div
                 class="share-item col-xs-12 col-xl-6 col-lg-12"
@@ -40,12 +39,19 @@
                     <img src="../../assets/home-swiper.png" />
                     <div class="share-item-right">
                         <p>{{ item.title }}</p>
-                        <div>{{ item.abstract }}</div>
+                        <div style="font-size: 16px; color: #404040; margin-bottom: 5px">{{ item.date }}</div>
+                        <div class="share-item-tag">
+                            <span v-for="item2 in item.tag">{{ item2 }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
+      </div>
+
+      <div class="share-category">
+          <li v-for="item in blogType" @click="getData(item.id)">{{ item.name }}</li>
       </div>
       <Footer />
   </div>
@@ -58,16 +64,31 @@ export default {
   name: 'Share',
   data() {
       return {
-          data: []
+          data: [],
+          blogType: []
       }
   },
   components: { Header, Footer },
   mounted() {
-      this.getData();
+      // 获取博客类型
+    const url = 'https://www.hibifsqm.com/blog/getBlogType';
+    fetch(url).then(response => response.json())
+    .then(res => {
+        this.blogType = res.data;
+        this.getData(res.data[0].id);
+    })
   },
   methods: {
-      getData() {
-          const url = 'http://localhost:3000/blog/list';
+      getBlogType() {
+          // 获取博客类型
+          const url = 'https://www.hibifsqm.com/blog/getBlogType';
+          fetch(url).then(response => response.json())
+            .then(res => {
+                this.blogType = res.data;
+            })
+      },
+      getData(type) {
+          const url = `https://www.hibifsqm.com/blog/list?type=${type}`;
           fetch(url).then(response => response.json())
             .then(res => {
                 this.data = res.data;
@@ -84,18 +105,33 @@ export default {
 #share {
     background: rgb(188, 215, 196);
     .share-category {
-        position: fixed;
-        top: 50px;
-        left: 15px;
+        padding: 40px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-weight: bold;
+        li {
+            cursor: pointer;
+            padding: 8px 15px;
+            transition: all .2s;
+            border-radius: 3px;
+            display: inline-block;
+            &:hover {
+                background: #008734;
+                color: #fff;
+            }
+        }
     }
     .share-first {
         margin: 0 auto;
-        padding: 64px 0;
+        padding-top: 64px;
         @media only screen and (min-width: 768px) {
             width: 800px;
         }
         @media only screen and (min-width: 1200px) {
             width: 1140px;
+        }
+        @media (max-width: 980px) {
+            padding-top: 110px;
         }
         >.flex {
             @media (max-width: 992px) {
@@ -113,6 +149,7 @@ export default {
                 top: 0;
                 left: 0;
                 max-width: 540px;
+                border-radius: 50%;
                 @media (max-width: 992px) {
                     position: unset!important;
                 }
@@ -134,8 +171,9 @@ export default {
                 max-width: 75%;
                 box-sizing: border-box;
                 width: 100%;
+                box-shadow: 0 0 13px #e0e0e0;
                 @media (max-width: 992px) {
-                    margin-top: 0!important;
+                    margin-top: 35px!important;
                     max-width: 100%;
                 }
                 div {
@@ -145,6 +183,9 @@ export default {
                     font-weight: bold;
                     &:hover {
                         transform: scale(1.01);
+                    }
+                    @media (max-width: 992px) {
+                        font-size: 40px;
                     }
                 }
             }
@@ -161,7 +202,8 @@ export default {
                 }
                 p {
                     color: #404040;
-                    font-size: 22px;
+                    font-size: 25px;
+                    margin-bottom: 15px;
                 }
                 img {
                     margin-right: 10px;
@@ -177,6 +219,22 @@ export default {
                         color: #818181;
                         font-size: 14px;
                     }
+                }
+            }
+            .share-first-title_3 {
+                width: 100%;
+                max-width: 50%;
+                flex: 0 0 50%;
+                margin-bottom: 15px;
+                span {
+                    display: inline-block;
+                    background: #19be6b;
+                    height: 32px;
+                    line-height: 32px;
+                    color: #fff;
+                    padding: 0 12px;
+                    border-radius: 3px;
+                    margin: 2px 4px 2px 0;
                 }
             }
         }
@@ -224,9 +282,16 @@ export default {
                     font-weight: bold;
                     margin-bottom: 8px;
                 }
-                div {
-                    font-size: 16px;
-                    color: #404040;
+                .share-item-tag span {
+                    display: inline-block;
+                    background: #19be6b;
+                    height: 28px;
+                    line-height: 28px;
+                    color: #fff;
+                    padding: 0 12px;
+                    border-radius: 3px;
+                    font-size: 12px;
+                    margin: 2px 4px 2px 0;
                 }
             }
         }

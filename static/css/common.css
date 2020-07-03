@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    font-family: Microsoft JhengHei;
+    /* font-family: Microsoft JhengHei; */
 }
 
 .flex { display: flex; }
@@ -84,13 +84,19 @@ a:active {
 
 @media (max-width: 1255px) {
     .container {
-        max-width: 795px;
+        max-width: 788px;
         padding-left: 0;
         padding-right: 0;
     }
     .col-lg-12 {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .container {
+        max-width: 90%;
     }
 }
 

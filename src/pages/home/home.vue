@@ -5,19 +5,17 @@
         <!-- 标题 -->
         <section class="flex home-top">
             <div class="container flex">
-                <img src="../../assets/master.png" data-aos="zoom-in" data-aos-duration="400">
+                <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
                 <div class="home-top-right">
                     <div style="margin-left: 40px">
                         <div style="font-size: 48px">HELLO,</div>
                         <div style="font-size: 32px">a bit about me:</div>
                     </div>
                     <div class="home-top-img flex">
-                        <div class="home-top-img-1">关于我</div>
-                        <div class="home-top-img-2">风水课程</div>
-                        <div class="home-top-img-3">奇门占卜</div>
+                        <img src="../../assets/homeTopImage.png" >
                     </div>
                     <div class="home-top-intro">
-                        Hi, 我Hibi (嗨比)，32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager.两年前，一次偶然的机遇接触到了本门派的风水课程，随后在同门师兄的引荐下学习了奇门遁甲诸葛术，从此踏上易学学习推广之路，现在仍在路上。
+                        Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
                     </div>
                 </div>
             </div>
@@ -27,23 +25,27 @@
         <section class="home-two">
             <div class="container">
                 <div class="home-two-line-1">
-                    <div style="margin-bottom: 5px">风水和奇门，这两门课都是我从零基础开始深入学习的，他们逐渐改变了我的生活。</div>
+                    <div style="margin-bottom: 5px">风水和奇门, 这两门课都是我从零基础开始深入学习的, 他们逐渐改变了我的生活.</div>
                     <div class="flex" style="align-items: center">
-                        想知道更多背后的故事请点击——————
+                        <span>想知道更多背后的故事请点击——————</span>
                         <img src="../../assets/click-circular.png" @click="jumpUrl">
                     </div>
                 </div>
                 <div class="home-two-line-2">
-                    <div style="margin-bottom: 5px">明师难遇，通过这个平台，我希望给喜欢易学的朋友提供一个指引，同时也乐于分享</div>
+                    <div style="margin-bottom: 5px">明师难遇, 通过这个平台, 我希望给喜欢易学的朋友提供一个指引, 同时也乐于分享</div>
                     <div style="display: flex; align-items: center;">
-                        我一路学习的见闻和心得，共勉，感恩<img src="../../assets/emoji.png">
+                        <span>我一路学习的见闻和心得, 共勉, 感恩</span>
+                        <img src="../../assets/emoji.png">
                     </div>
                 </div>
                 <div class="home-two-line-3 flex">
                     <img src="../../assets/home-leftWing.png" class="leftWing" width="35" height="630" data-aos="fade-up">
-                    <div style="position: relative" data-aos="fade-up">
+                    <div class="home-two-line-3-content" style="position: relative" data-aos="fade-up">
                         <img src="../../assets/home-centerWing1.png" alt="">
                         <img src="../../assets/home-centerWing2.png" class="centerWing-flower" width="222" height="230">
+                        <span class="centerWing-title">
+                            <img src="../../assets/fskc-title.png" >
+                        </span>
                         <div class="centerWing-element">
                             <img src="../../assets/home-centerWing3.png">
                             <img src="../../assets/home-centerWing4.png">
@@ -62,28 +64,56 @@
                             <p>基础但是</p>
                             <p>有兴趣的</p>
                             <p>年轻用户</p>
+                            <div>
+                                <div>针对毫无</div>
+                                <div>基础但是</div>
+                                <div>有兴趣的</div>
+                                <div>年轻用户</div>
+                            </div>
                         </div>
                         <div class="line4-mu">
                             <p>化煞为奴</p>
                             <p>为贵</p>
                             <p>用神有力</p>
+                            <div>
+                                <div>化煞为奴</div>
+                                <div>为贵</div>
+                                <div>用神有力</div>
+                            </div>
                         </div>
                         <div class="line4-tu">
                             <p>避开凶宅</p>
                             <p>趋吉避凶</p>
                             <p>调整风水</p>
+                            <div>
+                                <div>避开凶宅</div>
+                                <div>趋吉避凶</div>
+                                <div>调整风水</div>
+                            </div>
                         </div>
                         <div class="line4-shui">
                             <p>催财催丁</p>
                             <p>催寿催桃</p>
                             <p>花自己就</p>
                             <p>能搞定</p>
+                            <div>
+                                <div>催财催丁</div>
+                                <div>催寿催桃</div>
+                                <div>花自己就</div>
+                                <div>能搞定</div>
+                            </div>
                         </div>
                         <div class="line4-jin">
                             <p>租房买房</p>
                             <p>公司商铺</p>
                             <p>风水好坏</p>
                             <p>不求人</p>
+                            <div>
+                                <div>租房买房</div>
+                                <div>公司商铺</div>
+                                <div>风水好坏</div>
+                                <div>不求人</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,34 +143,49 @@
                     <div class="home-four-title">
                         <div class="flex" style="align-items: flex-end; margin-bottom: 30px">
                             <img src="../../assets/home-fourTop.png">
-                            <span style="font-size: 48px; margin-bottom: 10px">奇门占卜</span>
+                            <img src="../../assets/qmzb-title.png" style="margin-bottom: 10px">
                         </div>
                         <div style="font-size: 28px; text-align: center">Hibi风水奇门工作坊--奇门遁甲简介</div>
                         <div style="width: 470px">
-                            <p>1️.奇门遁甲古时用于布兵打仗称之为帝王之术，现代生活用于生活百事预测，趋吉避凶</p>
-                            <p>2️.奇门遁甲是一个时空模型，地盘不动，神盘、天盘、人盘每个时辰（每2小时）转动一次，得到的结果即发生变化，发问时间很关键</p>
-                            <p>3.奇门遁甲市面上五花八门，真真假假，本门派为诸葛奇门术，市面仅有一家，诸葛亮是本门派的祖师爷，法不轻传</p>
-                            <p>4.没有一个门派的占卜术可以做到百分之百准确，《了凡四训》都告诉我们可以改命的道理，当下一个善念都会影响结果和走向，相由心生，境由心造</p>
+                            <p>1️.奇门遁甲古时用于布兵打仗称之为帝王之术, 现代生活用于生活百事预测, 趋吉避凶</p>
+                            <p>2️.奇门遁甲是一个时空模型, 地盘不动, 神盘、天盘、人盘每个时辰（每2小时）转动一次, 得到的结果即发生变化, 发问时间很关键</p>
+                            <p>3.奇门遁甲市面上五花八门, 真真假假, 本门派为诸葛奇门术, 市面仅有一家, 诸葛亮是本门派的祖师爷, 法不轻传</p>
+                            <p>4.没有一个门派的占卜术可以做到百分之百准确, 《了凡四训》都告诉我们可以改命的道理, 当下一个善念都会影响结果和走向, 相由心生, 境由心造</p>
                         </div>
                         <div class="center" style="margin: 50px 0">
                             <img src="../../assets/paipan.gif" width="450">
                         </div>
                     </div>
-                    <div style="color: rgb(140, 188, 162); font-size: 20px">
-                        <div>抉择、健康、升迁、感情、投资等生活百事，我都可以</div>
-                        <div>根据您当下的排盘解读冥冥之中的天意，告诉您最优的选择</div>
-                    </div>
                 </div>
                 <img src="../../assets/home-centerWing2.png" width="222" height="203">
+            </div>
+            <div class="minmin" style="color: rgb(140, 188, 162); font-size: 23px; width: 595px; margin: 0 auto">
+                <div>抉择、健康、升迁、感情、投资等生活百事, 我都可以</div>
+                <div>根据您当下的排盘解读冥冥之中的天意, 告诉您最优的选择</div>
             </div>
             <div class="container">
                 <div class="home-four-footer">
                     <img src="../../assets/five-select.png" style="width: 100%">
-                    <div class="four-1">做抉择的时候，哪个更好？</div>
-                    <div class="four-2">这次手术会顺利吗？</div>
-                    <div class="four-3">这段婚姻会离婚收场吗？</div>
-                    <div class="four-4">公司晋升我有没有希望？</div>
-                    <div class="four-5">朋友拉我参与一项投资，能不能做？</div>
+                    <div class="four-1">
+                        做抉择的时候, 哪个更好？
+                        <div>做抉择的时候, 哪个更好？</div>
+                    </div>
+                    <div class="four-2">
+                        这次手术会顺利吗？
+                        <div>这次手术会顺利吗？</div>
+                    </div>
+                    <div class="four-3">
+                        这段婚姻会离婚收场吗？
+                        <div>这段婚姻会离婚收场吗？</div>
+                    </div>
+                    <div class="four-4">
+                        公司晋升我有没有希望？
+                        <div>公司晋升我有没有希望？</div>
+                    </div>
+                    <div class="four-5">
+                        朋友拉我参与一项投资, 能不能做？
+                        <div>朋友拉我参与一项投资, 能不能做？</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -150,8 +195,7 @@
             <div class="container flex">
                 <img src="../../assets/cloud-left.png" class="home-five-left" data-aos="fade-up" data-aos-duration="2000">
                 <div class="home-five-center">
-                    <div>奇门占卜可以看到冥冥之中的天意</div>
-                    <div>开盘即可知吉凶做出更利于我们的选择</div>
+                    <img src="../../assets/mmzz-title.png" alt="">
                 </div>
                 <img src="../../assets/cloud-right.png" class="home-five-right" data-aos="fade-up" data-aos-duration="2000">
             </div>
@@ -167,13 +211,16 @@
         <!-- 上陆 End -->
         <!-- 底部 -->
         <section class="home-footer">
-            <div class="container">
+            <div class="container" style="padding: 0 100px">
                 <div class="home-footer-title">联系我：</div>
                 <div class="flex" style="justify-content: space-between">
                     <div class="home-footer-flex home-footer-left">
-                        <div>
+                        <div class="code-modal-hover" @click="showPic(1)">
                             <img src="../../assets/douyin-icon.png">
                             抖音：hibifsqm
+                            <div class="code-modal">
+                                <img src="../../assets/douyin-code.jpg" width="244">
+                            </div>
                         </div>
                         <div>
                             <img src="../../assets/sina-icon.png">
@@ -185,27 +232,46 @@
                         </div>
                     </div>
                     <div class="home-footer-flex home-footer-center">
-                        <div>
+                        <div class="code-modal-hover" @click="showPic(2)">
                             <img src="../../assets/wechat-icon.png">
                             微信号：caramel0808
+                            <div class="code-modal">
+                                <img src="../../assets/wechat-code.jpg" width="227">
+                            </div>
                         </div>
-                        <div>
+                        <div class="code-modal-hover" @click="showPic(3)">
                             <img src="../../assets/xcx-icon.png">
                             小程序：Hibi风水奇门工作坊
+                            <div class="code-modal">
+                                <img src="../../assets/xcx-code.jpg" width="227">
+                            </div>
                         </div>
                         <div>
                             <img src="../../assets/email-icon.png">
                             邮箱：hibifsqm@gmail.com
                         </div>
                     </div>
-                    <div class="home-footer-right">
+                    <!-- <div class="home-footer-right">
                         <img src="../../assets/wechat-code.png" style="margin-bottom: 5px">
                         <img src="../../assets/xcx-code.png" alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
         <!-- 底部 End -->
+        <!-- 手机显示二维码的模态框 -->
+        <div class="mobile-modal" v-show="modalShow">
+            <div class="modal-content">
+                <img
+                    src="../../assets/close.svg"
+                    @click="modalShow = false"
+                    style="position: absolute; top: 0; right: -20px; width: 32px; height: 32px"
+                >
+                <img src="../../assets/douyin-code.jpg" v-if="showPicIndex == 1">
+                <img src="../../assets/wechat-code.jpg" v-if="showPicIndex == 2">
+                <img src="../../assets/xcx-code.jpg" v-if="showPicIndex == 3">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -219,6 +285,8 @@ export default {
     data() {
         return {
             paipan: '<b>',
+            modalShow: false,
+            showPicIndex: 1,
         }
     },
     components: { Header, Footer },
@@ -232,6 +300,10 @@ export default {
     methods: {
         jumpUrl() {
             
+        },
+        showPic(index) {
+            this.modalShow = true;
+            this.showPicIndex = index;
         },
         qimenShow() {
             const url = 'http://localhost:3000/banner/paipan';
@@ -251,6 +323,7 @@ export default {
 </script>
 
 <style lang="scss">
+// @import '../../assets/font/font.css';
 #home {
     background: #fff;
     .home-paipan {
@@ -261,9 +334,18 @@ export default {
     .home-top {
         background: rgb(188, 215, 196);
         padding: 60px 0;
+        @media (max-width: 980px) {
+            padding-top: 110px;
+        }
         .container {
             align-items: center;
             justify-content: space-between;
+        }
+        .masterImg {
+            max-width: 208px;
+            @media (max-width: 765px) {
+                width: 40%;
+            }
         }
         .home-top-right {
             width: 60%;
@@ -271,27 +353,19 @@ export default {
                 margin-top: 20px;
                 margin-bottom: 32px;
                 justify-content: space-between;
-                >div {
-                    border-radius: 50%;
-                    width: 150px;
-                    height: 150px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: #fff;
-                }
-                .home-top-img-1 {
-                    background: rgb(125, 211, 228);
-                }
-                .home-top-img-2 {
-                    background: rgb(172, 150, 214);
-                }
-                .home-top-img-3 {
-                    background: rgb(224, 170, 126);
+                img {
+                    transition: all .5s;
+                    &:hover {
+                        transform: scale(1.2);
+                    }
                 }
             }
             .home-top-intro {
                 line-height: 25px;
+                @media (max-width: 1100px) {
+                    font-size: 25px;
+                    line-height: 50px;
+                }
             }
         }
     }
@@ -310,12 +384,27 @@ export default {
                 cursor: pointer;
                 animation: scale-up-two 2s 0s infinite;
             }
+            div {
+                @media (max-width: 1100px) {
+                    font-size: 25px;
+                    line-height: 50px;
+                }
+            }
         }
         .home-two-line-2 {
             width: 80%;
             margin: 0 auto;
             img {
                 margin-left: 5px;
+                @media (max-width: 1100px) {
+                    width: 50px;
+                }
+            }
+            div {
+                @media (max-width: 1100px) {
+                    font-size: 25px;
+                    line-height: 50px;
+                }
             }
         }
         .home-two-line-3 {
@@ -324,10 +413,20 @@ export default {
             .leftWing {
                 margin-top: 100px;
             }
+            .home-two-line-3-content {
+                // @media (max-width: 980px) {
+                //     transform: scale(0.5);
+                // }
+            }
             .centerWing-flower {
                 position: absolute;
                 top: 40px;
                 right: 40px;
+            }
+            .centerWing-title {
+                position: absolute;
+                top: 282px;
+                left: 198px;
             }
             .centerWing-element {
                 width: 486px;
@@ -363,6 +462,27 @@ export default {
                 margin: 0 auto;
                 >div {
                     position: absolute;
+                    cursor: pointer;
+                    transition: all .5s;
+                    &:hover {
+                        transform: scale(1.2);
+                        >div {
+                            display: block;
+                        }
+                    }
+                    >div {
+                        display: none;
+                        position: absolute;
+                        top: -30px;
+                        left: 116px;
+                        background: #f3f2f2;
+                        border-radius: 4px;
+                        border: 1px solid #cebcbc;
+                        padding: 10px 20px;
+                        width: 86px;
+                        font-size: 21px;
+                        color: #000;
+                    }
                 }
                 p {
                     margin: 0;
@@ -408,11 +528,21 @@ export default {
         .container {
             justify-content: space-between;
         }
+        .minmin {
+            @media (max-width: 1100px) {
+                font-size: 25px;
+                line-height: 50px;
+            }
+        }
         .home-four-title {
             margin-top: -50px;
             width: 470px;
             p {
                 text-indent: 24px;
+                @media (max-width: 1100px) {
+                    font-size: 25px;
+                    line-height: 50px;
+                }
             }
         }
         .home-four-footer {
@@ -429,12 +559,28 @@ export default {
                 transition: all .5s;
                 &:hover {
                     transform: scale(1.2);
+                    >div {
+                        display: block;
+                    }
+                }
+                >div {
+                    display: none;
+                    position: absolute;
+                    top: -87px;
+                    left: 70px;
+                    width: 100px;
+                    border: 1px solid #cebcbc;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    font-size: 16px;
+                    line-height: 25px;
+                    background: #f3f2f2;
                 }
             }
             .four-1 {
                 left: 40px;
                 top: 28px;
-                width: 86px;
+                width: 77px;
             }
             .four-2 {
                 left: 208px;
@@ -472,7 +618,9 @@ export default {
             .home-five-center {
                 width: 100%;
                 text-align: center;
-                font-size: 38px;
+                line-height: 48px;
+                font-size: 33px;
+                color: rgb(94, 94, 94);
             }
             .home-five-right {
                 position: absolute;
@@ -490,10 +638,18 @@ export default {
     .home-footer {
         background: rgb(188, 215, 196);
         padding: 80px 0;
+        >div {
+            @media (max-width: 1100px) {
+                padding: 0!important
+            }
+        }
         .home-footer-title {
             font-size: 24px;
             margin-bottom: 30px;
             text-indent: 41px;
+            @media (max-width: 1100px) {
+                font-size: 30px;
+            }
         }
         .home-footer-flex {
             >div {
@@ -503,11 +659,56 @@ export default {
                 img {
                     margin-right: 10px;
                 }
+                @media (max-width: 1100px) {
+                    font-size: 25px;
+                    line-height: 50px;
+                }
+            }
+            .code-modal-hover {
+                position: relative;
+                cursor: pointer;
+                &:hover {
+                    @media (min-width: 1000px) {
+                        .code-modal {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            .code-modal {
+                position: absolute;
+                bottom: 30px;
+                left: 20px;
+                text-align: right;
+                display: none;
+                img {
+                    box-shadow: 0px 0px 12px #7d7d7d;
+                }
             }
         }
         .home-footer-right {
             display: flex;
             flex-direction: column;
+        }
+    }
+    .mobile-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999999;
+        background: rgba(0, 0, 0, .4);
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .modal-content {
+            text-align: center;
+            position: relative;
+        }
+        img {
+            width: 80%;
         }
     }
 }

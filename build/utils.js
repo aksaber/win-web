@@ -40,7 +40,7 @@ exports.htmlPlugin = function() {
             filename: filename + '.html',
             // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引用所有的js脚本
             chunks: ['manifest', 'vendor', filename],
-            favicon: path.resolve('static/favicon.ico'),
+            favicon: path.resolve('static/favicons.ico'),
             inject: true
         }
         if (process.env.NODE_ENV === 'production') {
