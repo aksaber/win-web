@@ -95,7 +95,7 @@ export default {
             })
       },
       gotoBlog(blog) {
-          window.location = `blogInfo.html?id=${blog.id}`;
+          window.location = `infoBlog.html?id=${blog.id}`;
       }
   }
 }
