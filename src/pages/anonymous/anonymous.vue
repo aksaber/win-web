@@ -1,6 +1,7 @@
 <template>
-  <div id="geoCourse">
+  <div id="anonymous">
       <Header />
+      <div>anonymous</div>
       <Footer />
   </div>
 </template>
@@ -9,7 +10,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
-  name: 'Home',
+  name: 'Anonymous',
   components: { Header, Footer },
   mounted() {
       console.log('风水课程');

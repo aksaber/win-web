@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    /* font-family: Microsoft JhengHei; */
+    font-family: '新宋体';
 }
 
 .flex { display: flex; }

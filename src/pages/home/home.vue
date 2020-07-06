@@ -210,68 +210,9 @@
         </section>
         <!-- 上陆 End -->
         <!-- 底部 -->
-        <section class="home-footer">
-            <div class="container" style="padding: 0 100px">
-                <div class="home-footer-title">联系我：</div>
-                <div class="flex" style="justify-content: space-between">
-                    <div class="home-footer-flex home-footer-left">
-                        <div class="code-modal-hover" @click="showPic(1)">
-                            <img src="../../assets/douyin-icon.png">
-                            抖音：hibifsqm
-                            <div class="code-modal">
-                                <img src="../../assets/douyin-code.jpg" width="244">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="../../assets/sina-icon.png">
-                            微博：Hibi风水奇门工作坊
-                        </div>
-                        <div>
-                            <img src="../../assets/youtube-icon.png">
-                            YouTube：Hibi风水奇门工作坊
-                        </div>
-                    </div>
-                    <div class="home-footer-flex home-footer-center">
-                        <div class="code-modal-hover" @click="showPic(2)">
-                            <img src="../../assets/wechat-icon.png">
-                            微信号：caramel0808
-                            <div class="code-modal">
-                                <img src="../../assets/wechat-code.jpg" width="227">
-                            </div>
-                        </div>
-                        <div class="code-modal-hover" @click="showPic(3)">
-                            <img src="../../assets/xcx-icon.png">
-                            小程序：Hibi风水奇门工作坊
-                            <div class="code-modal">
-                                <img src="../../assets/xcx-code.jpg" width="227">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="../../assets/email-icon.png">
-                            邮箱：hibifsqm@gmail.com
-                        </div>
-                    </div>
-                    <!-- <div class="home-footer-right">
-                        <img src="../../assets/wechat-code.png" style="margin-bottom: 5px">
-                        <img src="../../assets/xcx-code.png" alt="">
-                    </div> -->
-                </div>
-            </div>
-        </section>
+        <Footer />
         <!-- 底部 End -->
         <!-- 手机显示二维码的模态框 -->
-        <div class="mobile-modal" v-show="modalShow">
-            <div class="modal-content">
-                <img
-                    src="../../assets/close.svg"
-                    @click="modalShow = false"
-                    style="position: absolute; top: 0; right: -20px; width: 32px; height: 32px"
-                >
-                <img src="../../assets/douyin-code.jpg" v-if="showPicIndex == 1">
-                <img src="../../assets/wechat-code.jpg" v-if="showPicIndex == 2">
-                <img src="../../assets/xcx-code.jpg" v-if="showPicIndex == 3">
-            </div>
-        </div>
     </div>
 </template>
 
@@ -279,14 +220,12 @@
 import 'aos/dist/aos.css'
 import AOS from 'aos/dist/aos.js'
 import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer'
+import Footer from '@/components/Footer.vue'
 export default {
     name: 'Home',
     data() {
         return {
             paipan: '<b>',
-            modalShow: false,
-            showPicIndex: 1,
         }
     },
     components: { Header, Footer },
@@ -300,10 +239,6 @@ export default {
     methods: {
         jumpUrl() {
             
-        },
-        showPic(index) {
-            this.modalShow = true;
-            this.showPicIndex = index;
         },
         qimenShow() {
             const url = 'http://localhost:3000/banner/paipan';
@@ -633,82 +568,6 @@ export default {
         padding: 50px 0;
         img {
             max-width: 100%;
-        }
-    }
-    .home-footer {
-        background: rgb(188, 215, 196);
-        padding: 80px 0;
-        >div {
-            @media (max-width: 1100px) {
-                padding: 0!important
-            }
-        }
-        .home-footer-title {
-            font-size: 24px;
-            margin-bottom: 30px;
-            text-indent: 41px;
-            @media (max-width: 1100px) {
-                font-size: 30px;
-            }
-        }
-        .home-footer-flex {
-            >div {
-                display: flex;
-                align-items: center;
-                margin-bottom: 30px;
-                img {
-                    margin-right: 10px;
-                }
-                @media (max-width: 1100px) {
-                    font-size: 25px;
-                    line-height: 50px;
-                }
-            }
-            .code-modal-hover {
-                position: relative;
-                cursor: pointer;
-                &:hover {
-                    @media (min-width: 1000px) {
-                        .code-modal {
-                            display: block;
-                        }
-                    }
-                }
-            }
-            .code-modal {
-                position: absolute;
-                bottom: 30px;
-                left: 20px;
-                text-align: right;
-                display: none;
-                img {
-                    box-shadow: 0px 0px 12px #7d7d7d;
-                }
-            }
-        }
-        .home-footer-right {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-    .mobile-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999999;
-        background: rgba(0, 0, 0, .4);
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .modal-content {
-            text-align: center;
-            position: relative;
-        }
-        img {
-            width: 80%;
         }
     }
 }

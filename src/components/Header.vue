@@ -10,7 +10,7 @@
                     <li><a href="home.html">关于我</a></li>
                     <li><a>风水课程</a></li>
                     <li><a>奇门占卜</a></li>
-                    <li><a>匿名占卜</a></li>
+                    <li><a href="">匿名占卜</a></li>
                     <li><a href="share.html">博文分享</a></li>
                     <li><a>联系我</a></li>
                 </ul>
@@ -29,13 +29,16 @@
                 </div>
             </div>
         </div>
-        <div class="mobile-menu" :style="{transform: isMenu ? 'rotateX(0deg)' : 'rotateX(90deg)', height: isMenu ? '244px' : 0}">
-            <p><a href="home.html">首页</a></p>
-            <p><a href="geoCourse.html">风水课程</a></p>
-            <p><a href="magicCourse.html">奇门课程</a></p>
-            <p><a href="share.html">博文分享</a></p>
-            <p><a href="aboutUs.html">联系我们</a></p>
-        </div>
+        <transition name="fade">
+            <div class="mobile-menu" v-if="isMenu">
+                <a href="home.html">关于我</a>
+                <a>风水课程</a>
+                <a>奇门占卜</a>
+                <a>匿名占卜</a>
+                <a href="share.html">博文分享</a>
+                <a>联系我</a>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -122,14 +125,12 @@ export default {
 .mobile-menu {
     text-align: center;
     font-size: 16px;
-    padding: 5px 0.5rem 0 0.5rem;
-    transition: all 0.3s ease-in;
-    display: none;
+    padding: 10px 0;
     position: fixed;
     right: 0px;
-    top: 90px;
-    width: 144px;
-    box-shadow: rgb(171, 171, 171) 0px 5px 18px;
+    top: 88px;
+    width: 100%;
+    box-shadow: 3px 5px 5px #656b795e;
     z-index: 999;
     background: rgb(188, 215, 196);
     @media (max-width: 980px) {
@@ -138,14 +139,18 @@ export default {
     a {
         color: #000;
         font-weight: bold;
-    }
-    p {
-        padding-top: 0.1rem;
-        padding-bottom: 0.1rem;
+        padding: 10px 0;
+        display: block;
     }
     &:after {
         content: '';
         clear: both;
     }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>

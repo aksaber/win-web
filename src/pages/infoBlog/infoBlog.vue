@@ -11,6 +11,7 @@
         <img
             :src="isPlaying ? require('../../assets/audioPlay.png') : require('../../assets/audioPause.png')"
             class="audioImg"
+            v-if="data.audio"
             @click="playPause"
         >
         <div class="share-first">
@@ -19,15 +20,15 @@
                 <div class="share-first-title_1">
                     <div>{{ data.title }}</div>
                 </div>
-                <div class="share-first-title_2">
+                <!-- <div class="share-first-title_2">
                     <p>{{ data.abstract }}</p>
-                </div>
+                </div> -->
                 <div class="share-first-title_2 flex">
-                    <div>
+                    <div style="margin-top: 15px">
                         <div style="margin-bottom: 10px; font-size: 20px">{{ data.date }}</div>
                         <div style="font-size: 18px; margin-bottom: 10px">{{ data.author }}</div>
                         <div class="share-item-tag">
-                            <span v-for="item in data.tag">{{ item }}</span>
+                            <span v-for="item in data.tag" v-if="item != ''">{{ item }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,8 +36,11 @@
         </div>
         <div class="blog-content">
             <div class="container">
-                <div v-html="data.content"></div>
+                <div v-html="data.content" style="padding: 20px 0"></div>
             </div>
+        </div>
+        <div class="share-category">
+          <li v-for="item in blogType" @click="getData(item.id)">{{ item.name }}</li>
         </div>
         <Footer />  
     </div>
@@ -50,12 +54,19 @@ export default {
     data() {
         return {
             data: {
+                blogType: []
             },
             isPlaying: true,
         }
     },
     components: { Header, Footer },
     mounted() {
+        // 获取博客类型
+        const urls = 'https://www.hibifsqm.com/blog/getBlogType';
+        fetch(urls).then(response => response.json())
+        .then(res => {
+            this.blogType = res.data;
+        })
         let s_id = window.location.search;
         let url = {};
         if (s_id.indexOf('?') != -1) {
@@ -78,6 +89,9 @@ export default {
                     })
                 })
         },
+        getData(type) {
+            window.location = `share.html?type=${type}`;
+        },
         playPause() {
             if (this.isPlaying) {
                 // 当前正在播放，需暂停
@@ -94,6 +108,23 @@ export default {
 
 <style lang="scss">
 #blogInfo {
+    .share-category {
+        padding: 40px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-weight: bold;
+        li {
+            cursor: pointer;
+            padding: 8px 15px;
+            transition: all .2s;
+            border-radius: 3px;
+            display: inline-block;
+            &:hover {
+                background: #008734;
+                color: #fff;
+            }
+        }
+    }
     .share-first {
         margin: 0 auto;
         padding: 64px 0;
@@ -116,12 +147,13 @@ export default {
             position: relative;
             align-items: flex-end;
             flex-direction: column;
-            min-height: 600px;
+            min-height: 430px;
             .share-first-coverImage {
                 position: absolute;
                 top: 0;
-                left: 0;
-                max-width: 540px;
+                left: 40px;
+                max-width: 350px;
+                border-radius: 50%;
                 @media (max-width: 992px) {
                     position: unset!important;
                 }
@@ -150,7 +182,7 @@ export default {
                 div {
                     cursor: pointer;
                     transition: transform 0.5s;
-                    font-size: 60px;
+                    font-size: 45px;
                     font-weight: bold;
                     &:hover {
                         transform: scale(1.01);
@@ -159,8 +191,8 @@ export default {
             }
             .share-first-title_2 {
                 z-index: 1;
-                flex: 0 0 50%;
-                max-width: 50%;
+                flex: 0 0 60%;
+                max-width: 60%;
                 box-sizing: border-box;
                 width: 100%;
                 font-size: 18px;

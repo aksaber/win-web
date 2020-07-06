@@ -36,17 +36,18 @@
                 @click="gotoBlog(item)"
             >
                 <div class="flex">
-                    <img src="../../assets/home-swiper.png" />
+                    <img :src="item.coverImage ? item.coverImage : require('../../assets/home-swiper.png')" style="border-radius: 50%" />
                     <div class="share-item-right">
-                        <p>{{ item.title }}</p>
+                        <p :title="item.title">{{ item.title }}</p>
                         <div style="font-size: 16px; color: #404040; margin-bottom: 5px">{{ item.date }}</div>
                         <div class="share-item-tag">
-                            <span v-for="item2 in item.tag">{{ item2 }}</span>
+                            <span v-for="item2 in item.tag" v-if="item2 != ''">{{ item2 }}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- <div class="share-more" v-show="data2.length < data.length"><span @click="showMore">more</span></div> -->
         <div class="clear"></div>
       </div>
 
@@ -65,18 +66,31 @@ export default {
   data() {
       return {
           data: [],
-          blogType: []
+          blogType: [],
+          size: 10,  // 每页条数
+          page: 1,  // 当前页数
       }
   },
   components: { Header, Footer },
   mounted() {
-      // 获取博客类型
-    const url = 'https://www.hibifsqm.com/blog/getBlogType';
-    fetch(url).then(response => response.json())
-    .then(res => {
-        this.blogType = res.data;
-        this.getData(res.data[0].id);
-    })
+    const type = window.location.search ? window.location.search.split('=')[1] : null;
+    if (type) {
+        this.getData(type);
+        // 获取博客类型
+        const url = 'https://www.hibifsqm.com/blog/getBlogType';
+        fetch(url).then(response => response.json())
+        .then(res => {
+            this.blogType = res.data;
+        })
+    } else {
+        // 获取博客类型
+        const url = 'https://www.hibifsqm.com/blog/getBlogType';
+        fetch(url).then(response => response.json())
+        .then(res => {
+            this.blogType = res.data;
+            this.getData();
+        })
+    }
   },
   methods: {
       getBlogType() {
@@ -88,7 +102,12 @@ export default {
             })
       },
       getData(type) {
-          const url = `https://www.hibifsqm.com/blog/list?type=${type}`;
+          let url = null;
+          if (type) {
+            url = `https://www.hibifsqm.com/blog/list?type=${type}`;
+          } else {
+            url = `https://www.hibifsqm.com/blog/list`;
+          }
           fetch(url).then(response => response.json())
             .then(res => {
                 this.data = res.data;
@@ -96,6 +115,9 @@ export default {
       },
       gotoBlog(blog) {
           window.location = `infoBlog.html?id=${blog.id}`;
+      },
+      showMore() {
+            
       }
   }
 }
@@ -143,12 +165,12 @@ export default {
             position: relative;
             align-items: flex-end;
             flex-direction: column;
-            min-height: 600px;
+            min-height: 430px;
             .share-first-coverImage {
                 position: absolute;
                 top: 0;
                 left: 0;
-                max-width: 540px;
+                max-width: 350px;
                 border-radius: 50%;
                 @media (max-width: 992px) {
                     position: unset!important;
@@ -162,7 +184,7 @@ export default {
             }
             .share-first-title_1 {
                 margin-top: 95px;
-                background: #FCFAFA;
+                background: #bcd7c4;
                 padding: 25px 60px;
                 border-radius: 150px;
                 font-size: 25px;
@@ -171,7 +193,6 @@ export default {
                 max-width: 75%;
                 box-sizing: border-box;
                 width: 100%;
-                box-shadow: 0 0 13px #e0e0e0;
                 @media (max-width: 992px) {
                     margin-top: 35px!important;
                     max-width: 100%;
@@ -179,7 +200,7 @@ export default {
                 div {
                     cursor: pointer;
                     transition: transform 0.5s;
-                    font-size: 60px;
+                    font-size: 45px;
                     font-weight: bold;
                     &:hover {
                         transform: scale(1.01);
@@ -191,8 +212,8 @@ export default {
             }
             .share-first-title_2 {
                 z-index: 1;
-                flex: 0 0 50%;
-                max-width: 50%;
+                flex: 0 0 60%;
+                max-width: 60%;
                 box-sizing: border-box;
                 width: 100%;
                 font-size: 18px;
@@ -281,6 +302,10 @@ export default {
                     font-size: 26px;
                     font-weight: bold;
                     margin-bottom: 8px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                 }
                 .share-item-tag span {
                     display: inline-block;
@@ -299,6 +324,15 @@ export default {
             @media (max-width: 1200px) {
                 text-align: center;
             }
+        }
+    }
+    .share-more {
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 30px;
+        span {
+            cursor: pointer;
         }
     }
 }
