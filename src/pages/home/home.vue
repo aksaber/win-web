@@ -12,7 +12,9 @@
                         <div style="font-size: 32px">a bit about me:</div>
                     </div>
                     <div class="home-top-img flex">
-                        <img src="../../assets/homeTopImage.png" >
+                        <img src="../../assets/homeTopImage1.png" >
+                        <img src="../../assets/homeTopImage2.png" >
+                        <img src="../../assets/homeTopImage3.png" >
                     </div>
                     <div class="home-top-intro">
                         Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
@@ -238,7 +240,7 @@ export default {
     },
     methods: {
         jumpUrl() {
-            
+            window.location.href = 'https://www.hibifsqm.com/infoBlog.html?id=44'
         },
         qimenShow() {
             const url = 'http://localhost:3000/banner/paipan';
@@ -288,6 +290,7 @@ export default {
                 margin-top: 20px;
                 margin-bottom: 32px;
                 justify-content: space-between;
+                width: 445px;
                 img {
                     transition: all .5s;
                     &:hover {

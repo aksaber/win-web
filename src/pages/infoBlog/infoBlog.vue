@@ -39,6 +39,7 @@
                 <div v-html="data.content" style="padding: 20px 0"></div>
             </div>
         </div>
+        <div class="container" style="margin-top: 20px; font-weight: bold; font-size: 20px">博文分类</div>
         <div class="share-category">
           <li v-for="item in blogType" @click="getData(item.id)">{{ item.name }}</li>
         </div>
@@ -51,16 +52,31 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
     name: 'BlogInfo',
+    metaInfo() {
+        return {
+            title: this.data.title,
+            meta: [
+                { property: 'og:title', content: this.data.title },
+                { property: 'og:description', content: this.data.intro },
+                { property: 'og:image', content: this.data.coverImage },
+                { name: 'description', content: this.data.intro },
+                { name: 'title', content: this.data.title },
+                { name: 'keywords', content: this.data.title },
+                { vmid: 'description', name: 'description', content: this.data.intro },
+                { vmid: 'title', name: 'title', content: this.data.title }
+            ]
+        }
+    },
     data() {
         return {
-            data: {
-                blogType: []
-            },
+            data: {},
+            title: '',
             isPlaying: true,
+            blogType: []
         }
     },
     components: { Header, Footer },
-    mounted() {
+    created() {
         // 获取博客类型
         const urls = 'https://www.hibifsqm.com/blog/getBlogType';
         fetch(urls).then(response => response.json())
@@ -78,15 +94,33 @@ export default {
         }
         this.getInfo(url.id);
     },
+    mounted() {
+        // 获取博客类型
+        // const urls = 'https://www.hibifsqm.com/blog/getBlogType';
+        // fetch(urls).then(response => response.json())
+        // .then(res => {
+        //     this.blogType = res.data;
+        // })
+        // let s_id = window.location.search;
+        // let url = {};
+        // if (s_id.indexOf('?') != -1) {
+        //     let str = s_id.substr(1);
+        //     let strs = str.split('&');
+        //     for (let i = 0; i < strs.length; i++) {
+        //         url[strs[i].split('=')[0]] = unescape(strs[i].split('=')[1]);
+        //     }
+        // }
+        // this.getInfo(url.id);
+    },
     methods: {
         getInfo(id) {
             const url = `https://www.hibifsqm.com/blog/detail?id=${id}`;
             fetch(url).then(response => response.json())
                 .then(res => {
                     this.data = res.data[0];
-                    this.$nextTick(() => {
-                        this.isPlaying = !document.getElementById('player').paused;
-                    })
+                    // this.$nextTick(() => {
+                    //     this.isPlaying = !document.getElementById('player').paused;
+                    // })
                 })
         },
         getData(type) {
@@ -152,7 +186,8 @@ export default {
                 position: absolute;
                 top: 0;
                 left: 40px;
-                max-width: 350px;
+                width: 350px;
+                height: 350px;
                 border-radius: 50%;
                 @media (max-width: 992px) {
                     position: unset!important;

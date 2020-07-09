@@ -3,16 +3,17 @@
         <div class="header">
             <div class="container flex pcHeader">
                 <div class="header-logo flex">
-                    <img src="../assets/_logo.png" style="margin-right: 15px">
-                    <!-- <img src="../assets/logo-font.png"> -->
+                    <a href="home.html">
+                        <img src="../assets/_logo.png" style="margin-right: 15px">
+                    </a>
                 </div>
                 <ul>
                     <li><a href="home.html">关于我</a></li>
-                    <li><a>风水课程</a></li>
-                    <li><a>奇门占卜</a></li>
-                    <li><a href="">匿名占卜</a></li>
+                    <li><a href="https://www.hibifsqm.com/infoBlog.html?id=44">风水课程</a></li>
+                    <li><a href="https://www.hibifsqm.com/infoBlog.html?id=48">奇门占卜</a></li>
+                    <li style="color: #fff">匿名占卜</li>
                     <li><a href="share.html">博文分享</a></li>
-                    <li><a>联系我</a></li>
+                    <li><a href="#footer">联系我</a></li>
                 </ul>
             </div>
             <div class="mobileHeader">
@@ -32,11 +33,11 @@
         <transition name="fade">
             <div class="mobile-menu" v-if="isMenu">
                 <a href="home.html">关于我</a>
-                <a>风水课程</a>
-                <a>奇门占卜</a>
+                <a href="https://www.hibifsqm.com/infoBlog.html?id=44">风水课程</a>
+                <a href="https://www.hibifsqm.com/infoBlog.html?id=48">奇门占卜</a>
                 <a>匿名占卜</a>
                 <a href="share.html">博文分享</a>
-                <a>联系我</a>
+                <a href="#footer">联系我</a>
             </div>
         </transition>
     </div>
@@ -53,7 +54,7 @@ export default {
     methods: {
         showMenu() {
             this.isMenu = !this.isMenu;
-        }
+        },
     }
 }
 </script>

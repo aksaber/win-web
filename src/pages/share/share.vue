@@ -1,29 +1,12 @@
 <template>
   <div id="share">
       <Header />
-      <div class="share-first">
-          <div class="share-first-content flex">
-            <!-- <img :src="data[0] ? data[0].coverImage : null" alt=""> -->
-            <!-- <img :src="data[0] ? data[0].coverImage : require('../../assets/home-swiper.png')" class="share-first-coverImage"> -->
-            <img src="../../assets/blogPic.jpg" class="share-first-coverImage">
-            <div class="share-first-title_1">
-                <!-- <div @click="gotoBlog(data[0])">{{ data[0] ? data[0].title : null }}</div> -->
-                <div>一花一世界，一叶一菩提</div>
-            </div>
-            <div class="share-first-title_2">
-                <!-- <p>{{ data[0] ? data[0].date : null }}</p> -->
-                <p>一物一太极</p>
-            </div>
-            <!-- <div class="share-first-title_3" v-if="data[0]">
-                <span v-for="item in data[0].tag">{{ item }}</span>
-            </div>
-            <div class="share-first-title_2 flex">
-                <img src="../../assets/avatar.png" style="width: 60px; height: 60px" />
-                <div class="share-author">
-                    <div>{{ data[0] ? data[0].author : null }}</div>
-                    <span>{{ data[0] ? data[0].date : null }}</span>
-                </div>
-            </div> -->
+      
+      <div class="share-banner container flex">
+          <img src="../../assets/blogPic.jpg" class="share-banner-coverImage">
+          <div class="share-banner-title">
+              <div>一花一世界，一叶一菩提</div>
+              <p>一物一太极</p>
           </div>
       </div>
 
@@ -36,13 +19,13 @@
                 @click="gotoBlog(item)"
             >
                 <div class="flex">
-                    <img :src="item.coverImage ? item.coverImage : require('../../assets/home-swiper.png')" style="border-radius: 50%" />
+                    <img
+                        :src="item.coverImage ? item.coverImage : require('../../assets/home-swiper.png')"
+                        style="border-radius: 50%; width: 160px; height: 160px"
+                    />
                     <div class="share-item-right">
                         <p :title="item.title">{{ item.title }}</p>
-                        <div style="font-size: 16px; color: #404040; margin-bottom: 5px">{{ item.date }}</div>
-                        <div class="share-item-tag">
-                            <span v-for="item2 in item.tag" v-if="item2 != ''">{{ item2 }}</span>
-                        </div>
+                        <div class="share-item-intro">{{ item.intro }}</div>
                     </div>
                 </div>
             </div>
@@ -51,6 +34,7 @@
         <div class="clear"></div>
       </div>
 
+      <div class="container" style="margin-top: 20px; font-weight: bold; font-size: 20px">博文分类</div>
       <div class="share-category">
           <li v-for="item in blogType" @click="getData(item.id)">{{ item.name }}</li>
       </div>
@@ -126,8 +110,42 @@ export default {
 <style lang="scss">
 #share {
     background: rgb(188, 215, 196);
+    .share-banner {
+        justify-content: center;
+        @media (max-width: 980px) {
+            display: block;
+            text-align: center;
+            padding-top: 110px!important;
+        }
+        .share-banner-coverImage {
+            width: 350px;
+            border-radius: 50%;
+        }
+        .share-banner-title {
+            >div {
+                font-size: 39px;
+                font-weight: 700;
+                transition: transform .5s;
+                margin-top: 95px;
+                background: #bcd7c4;
+                padding: 25px 60px;
+                border-radius: 150px;
+                z-index: 1;
+                box-sizing: border-box;
+                margin-left: -80px;
+                @media (max-width: 980px) {
+                    margin-top: 0;
+                    margin-left: 0;
+                }
+            }
+            p {
+                color: #404040;
+                font-size: 25px;
+            }
+        }
+    }
     .share-category {
-        padding: 40px 15px;
+        padding: 0 15px 40px 15px;
         border-radius: 3px;
         text-align: center;
         font-weight: bold;
@@ -143,133 +161,17 @@ export default {
             }
         }
     }
-    .share-first {
-        margin: 0 auto;
-        padding-top: 64px;
-        @media only screen and (min-width: 768px) {
-            width: 800px;
-        }
-        @media only screen and (min-width: 1200px) {
-            width: 1140px;
-        }
-        @media (max-width: 980px) {
-            padding-top: 110px;
-        }
-        >.flex {
-            @media (max-width: 992px) {
-                text-align: center;
-                display: block!important;
-            }
-        }
-        .share-first-content {
-            position: relative;
-            align-items: flex-end;
-            flex-direction: column;
-            min-height: 430px;
-            .share-first-coverImage {
-                position: absolute;
-                top: 0;
-                left: 0;
-                max-width: 350px;
-                border-radius: 50%;
-                @media (max-width: 992px) {
-                    position: unset!important;
-                }
-                @media (max-width: 600px) {
-                    width: 400px;
-                }
-                @media (max-width: 500px) {
-                    width: 300px;
-                }
-            }
-            .share-first-title_1 {
-                margin-top: 95px;
-                background: #bcd7c4;
-                padding: 25px 60px;
-                border-radius: 150px;
-                font-size: 25px;
-                z-index: 1;
-                flex: 0 0 75%;
-                max-width: 75%;
-                box-sizing: border-box;
-                width: 100%;
-                @media (max-width: 992px) {
-                    margin-top: 35px!important;
-                    max-width: 100%;
-                }
-                div {
-                    cursor: pointer;
-                    transition: transform 0.5s;
-                    font-size: 45px;
-                    font-weight: bold;
-                    &:hover {
-                        transform: scale(1.01);
-                    }
-                    @media (max-width: 992px) {
-                        font-size: 40px;
-                    }
-                }
-            }
-            .share-first-title_2 {
-                z-index: 1;
-                flex: 0 0 60%;
-                max-width: 60%;
-                box-sizing: border-box;
-                width: 100%;
-                font-size: 18px;
-                @media (max-width: 992px) {
-                    max-width: 100%;
-                    display: block!important;
-                }
-                p {
-                    color: #404040;
-                    font-size: 25px;
-                    margin-bottom: 15px;
-                }
-                img {
-                    margin-right: 10px;
-                }
-                .share-author {
-                    div {
-                        color: #212529;
-                        font-size: 18px;
-                        margin-top: 5px;
-                        font-weight: bold;
-                    }
-                    span {
-                        color: #818181;
-                        font-size: 14px;
-                    }
-                }
-            }
-            .share-first-title_3 {
-                width: 100%;
-                max-width: 50%;
-                flex: 0 0 50%;
-                margin-bottom: 15px;
-                span {
-                    display: inline-block;
-                    background: #19be6b;
-                    height: 32px;
-                    line-height: 32px;
-                    color: #fff;
-                    padding: 0 12px;
-                    border-radius: 3px;
-                    margin: 2px 4px 2px 0;
-                }
-            }
-        }
-    }
     .container {
         margin: 0 auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 50px;
+        padding-bottom: 50px;
         .share-item {
             cursor: pointer;
             padding-left: 10px;
             padding-right: 10px;
             box-sizing: border-box;
             transition: all .5s;
+            display: flex;
             // @media (max-width: 768px) {
             //     flex: 0 0 55%!important;
             //     max-width: 55%!important;
@@ -279,18 +181,20 @@ export default {
                 flex: 0 0 55%!important;
                 max-width: 55%!important;
             }
+            @media (max-width: 980px) {
+                margin: 40px auto;
+            }
             &:hover {
                 transform: scale(1.1);
             }
             >.flex {
                 margin: 30px 0;
-                @media (max-width: 768px) {
+                align-items: center;
+                @media (max-width: 980px) {
                     display: block!important;
                     text-align: center;
                     justify-content: center;
-                }
-                @media (min-width: 768px) {
-                    
+                    margin: 0 auto;
                 }
             }
             img {
@@ -298,25 +202,32 @@ export default {
             }
             .share-item-right {
                 margin-left: 10px;
+                @media (max-width: 980px) {
+                    margin-left: 0;
+                }
                 p {
-                    font-size: 26px;
+                    font-size: 20px;
                     font-weight: bold;
                     margin-bottom: 8px;
+                    margin-top: 0;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 2;
                     overflow: hidden;
+                    width: 80%;
+                    @media (max-width: 980px) {
+                        font-size: 40px;
+                        width: 100%;
+                    }
                 }
-                .share-item-tag span {
-                    display: inline-block;
-                    background: #19be6b;
-                    height: 28px;
-                    line-height: 28px;
-                    color: #fff;
-                    padding: 0 12px;
-                    border-radius: 3px;
-                    font-size: 12px;
-                    margin: 2px 4px 2px 0;
+                .share-item-intro {
+                    color: #404040;
+                    width: 80%;
+                    font-size: 15px;
+                    @media (max-width: 980px) {
+                        font-size: 20px;
+                        width: 100%;
+                    }
                 }
             }
         }

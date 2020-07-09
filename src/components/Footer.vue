@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="footer" name="footer" id="footer">
         <div class="container" style="padding: 0 100px">
             <div class="home-footer-title">联系我：</div>
             <div class="flex" style="justify-content: space-between">
