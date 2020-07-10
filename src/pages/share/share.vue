@@ -119,6 +119,7 @@ export default {
         }
         .share-banner-coverImage {
             width: 350px;
+            height: 350px;
             border-radius: 50%;
         }
         .share-banner-title {
