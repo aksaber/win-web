@@ -36,7 +36,7 @@
 
       <div class="container" style="margin-top: 20px; font-weight: bold; font-size: 20px">博文分类</div>
       <div class="share-category">
-          <li v-for="item in blogType" @click="getData(item.id)">{{ item.name }}</li>
+          <li v-for="item in blogType" @click="jumpType(item.id)">{{ item.name }}</li>
       </div>
       <Footer />
   </div>
@@ -99,6 +99,9 @@ export default {
       },
       gotoBlog(blog) {
           window.location = `infoBlog.html?id=${blog.id}`;
+      },
+      jumpType(id) {
+          window.location = `share.html?id=${id}`;
       },
       showMore() {
             

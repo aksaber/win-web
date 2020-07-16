@@ -4,20 +4,27 @@
         <!-- <div class="home-paipan" v-html="paipan"></div> -->
         <!-- 标题 -->
         <section class="flex home-top">
-            <div class="container flex">
-                <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
-                <div class="home-top-right">
-                    <div style="margin-left: 40px">
-                        <div style="font-size: 48px">HELLO,</div>
-                        <div style="font-size: 32px">a bit about me:</div>
+            <div class="swiper-container">
+                <div class="container swiper-wrapper">
+                    <div class="flex swiper-slide">
+                        <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
+                        <div class="home-top-right">
+                            <div style="margin-left: 40px">
+                                <div style="font-size: 48px">HELLO,</div>
+                                <div style="font-size: 32px">a bit about me:</div>
+                            </div>
+                            <div class="home-top-img flex">
+                                <img src="../../assets/homeTopImage1.png" >
+                                <a :href="headerData.length > 0 ? headerData[0].url : null"><img src="../../assets/homeTopImage2.png" ></a>
+                                <a :href="headerData.length > 1 ? headerData[1].url : null"><img src="../../assets/homeTopImage3.png" ></a>
+                            </div>
+                            <div class="home-top-intro">
+                                Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
+                            </div>
+                        </div>
                     </div>
-                    <div class="home-top-img flex">
-                        <img src="../../assets/homeTopImage1.png" >
-                        <img src="../../assets/homeTopImage2.png" >
-                        <img src="../../assets/homeTopImage3.png" >
-                    </div>
-                    <div class="home-top-intro">
-                        Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
+                    <div class="swiper-slide" v-for="item in swiperData">
+                        <a :href="item.url"><img :src="item.image" style="width: 100%; height: 370px" /></a>
                     </div>
                 </div>
             </div>
@@ -221,6 +228,8 @@
 <script>
 import 'aos/dist/aos.css'
 import AOS from 'aos/dist/aos.js'
+import Swiper from 'swiper'
+import 'swiper/css/swiper.css';
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
@@ -228,6 +237,10 @@ export default {
     data() {
         return {
             paipan: '<b>',
+            http: 'https://www.hibifsqm.com',
+            // http: 'http://localhost:3020',
+            headerData: [],
+            swiperData: []
         }
     },
     components: { Header, Footer },
@@ -236,11 +249,34 @@ export default {
         AOS.init({
             duration: 2000
         });
-        // this.qimenShow();
+        // 获取导航栏跳转链接
+        this.getHeader();
+        const url = `${this.http}/blog/getBanner`;
+        fetch(url).then(response => response.json())
+        .then(res => {
+            if (res.code == 200) {
+                this.swiperData = res.data;
+                // 初始化swiper
+                let mySwiper = new Swiper('.swiper-container', {
+                    autoplay: true,
+                    observer: true,
+                    observeParents: true
+                })
+            }
+        })
     },
     methods: {
         jumpUrl() {
             window.location.href = 'https://www.hibifsqm.com/infoBlog.html?id=44'
+        },
+        getHeader() {
+            const url = `${this.http}/blog/getHeader`;
+            fetch(url).then(response => response.json())
+            .then(res => {
+                if (res.code == 200) {
+                    this.headerData = res.data;
+                }
+            })
         },
         qimenShow() {
             const url = 'http://localhost:3000/banner/paipan';
@@ -275,6 +311,10 @@ export default {
             padding-top: 110px;
         }
         .container {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        .flex {
             align-items: center;
             justify-content: space-between;
         }

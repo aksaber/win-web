@@ -9,14 +9,14 @@
                 </div>
                 <ul>
                     <li><a href="home.html">关于我</a></li>
-                    <li><a href="https://www.hibifsqm.com/infoBlog.html?id=44">风水课程</a></li>
-                    <li><a href="https://www.hibifsqm.com/infoBlog.html?id=48">奇门占卜</a></li>
+                    <li><a :href="headerData.length > 0 ? headerData[0].url : null">风水课程</a></li>
+                    <li><a :href="headerData.length > 1 ? headerData[1].url : null">奇门占卜</a></li>
                     <li style="color: #fff">匿名占卜</li>
                     <li><a href="share.html">博文分享</a></li>
                     <li><a href="#footer">联系我</a></li>
                 </ul>
             </div>
-            <div class="mobileHeader">
+            <div class="mobileHeader" :style="{background: isDetailPage ? '#bcd7c4' : '#fff'}">
                 <div class="collapseDiv container">
                     <div class="header-logo flex">
                         <img src="../assets/_logo.png" style="margin-right: 15px" width="244">
@@ -48,12 +48,33 @@ export default {
     name: 'Header',
     data() {
         return {
-            isMenu: false
+            isMenu: false,
+            http: 'https://www.hibifsqm.com',
+            // http: 'http://localhost:3020',
+            headerData: [],
+            isDetailPage: false
+        }
+    },
+    mounted() {
+        // 获取导航栏跳转链接
+        this.getHeader();
+        // 如果是infoBlog.html博客详情页，header为绿色色调
+        if (window.location.pathname.indexOf('infoBlog.html') > -1) {
+            this.isDetailPage = true;
         }
     },
     methods: {
         showMenu() {
             this.isMenu = !this.isMenu;
+        },
+        getHeader() {
+            const url = `${this.http}/blog/getHeader`;
+            fetch(url).then(response => response.json())
+            .then(res => {
+                if (res.code == 200) {
+                    this.headerData = res.data;
+                }
+            })
         },
     }
 }
@@ -81,7 +102,7 @@ export default {
         position: fixed;
         left: 0;
         width: 100%;
-        background: rgb(188, 215, 196);
+        background: #fff;
         box-shadow: 0px -5px 11px #adacac;
         z-index: 999;
         display: none;
@@ -91,6 +112,10 @@ export default {
     }
     .header-logo {
         align-items: center;
+        img {
+            width: 340px;
+            margin-top: 10px;
+        }
     }
     ul {
         @media (max-width: 768px) {
@@ -120,6 +145,7 @@ export default {
         .collapseImg {
             width: 32px;
             height: 32px;
+            transform: scale(1.5);
         }
     }
 }
@@ -131,17 +157,18 @@ export default {
     right: 0px;
     top: 88px;
     width: 100%;
-    box-shadow: 3px 5px 5px #656b795e;
+    box-shadow: 0px 2px 4px #656b795e;
     z-index: 999;
-    background: rgb(188, 215, 196);
+    background: #fff;
     @media (max-width: 980px) {
         display: block;
     }
     a {
         color: #000;
         font-weight: bold;
-        padding: 10px 0;
+        padding: 20px 0;
         display: block;
+        font-size: 32px;
     }
     &:after {
         content: '';

@@ -59,6 +59,10 @@
                 <img src="../assets/xcx-code.jpg" v-if="showPicIndex == 3">
             </div>
         </div>
+        
+        <div class="center" style="padding: 20px 0">
+            <a href="http://beian.miit.gov.cn" target="_blank" style="color: rgb(43, 43, 43)">粤ICP备20044595</a>
+        </div>
     </div>
 </template>
 
@@ -83,7 +87,7 @@ export default {
 <style lang="scss">
 .footer {
     background: rgb(188, 215, 196);
-    padding: 80px 0;
+    padding-top: 80px;
     >div {
         @media (max-width: 1100px) {
             padding: 0!important
