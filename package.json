@@ -12,7 +12,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "node-sass": "^4.14.1",
-    "swiper": "^5.3.7",
+    "swiper": "^3.4.2",
     "vue": "^2.5.2",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.1.6"

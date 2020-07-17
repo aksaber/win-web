@@ -5,28 +5,43 @@
         <!-- 标题 -->
         <section class="flex home-top">
             <div class="swiper-container">
-                <div class="container swiper-wrapper">
-                    <div class="flex swiper-slide">
-                        <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
-                        <div class="home-top-right">
-                            <div style="margin-left: 40px">
-                                <div style="font-size: 48px">HELLO,</div>
-                                <div style="font-size: 32px">a bit about me:</div>
-                            </div>
-                            <div class="home-top-img flex">
-                                <img src="../../assets/homeTopImage1.png" >
-                                <a :href="headerData.length > 0 ? headerData[0].url : null"><img src="../../assets/homeTopImage2.png" ></a>
-                                <a :href="headerData.length > 1 ? headerData[1].url : null"><img src="../../assets/homeTopImage3.png" ></a>
-                            </div>
-                            <div class="home-top-intro">
-                                Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="flex container">
+                            <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
+                            <div class="home-top-right">
+                                <div style="margin-left: 40px">
+                                    <div style="font-size: 48px">HELLO,</div>
+                                    <div style="font-size: 32px">a bit about me:</div>
+                                </div>
+                                <div class="home-top-img flex">
+                                    <img src="../../assets/homeTopImage1.png" >
+                                    <a :href="headerData.length > 0 ? headerData[0].url : null"><img src="../../assets/homeTopImage2.png" ></a>
+                                    <a :href="headerData.length > 1 ? headerData[1].url : null"><img src="../../assets/homeTopImage3.png" ></a>
+                                </div>
+                                <div class="home-top-intro">
+                                    Hi, 我Hibi (嗨比), 32岁以前一直是一个从事海外市场的Oversea BD Director/Marketing Manager. 两年前, 一次偶然的机遇接触到了本门派的风水课程, 随后在同门师兄的引荐下学习了奇门遁甲诸葛术, 从此踏上易学学习推广之路, 现在仍在路上.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide" v-for="item in swiperData">
-                        <a :href="item.url"><img :src="item.image" style="width: 100%; height: 370px" /></a>
+                        <!-- <a :href="item.url">
+                            <div :style="{
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: 'url(' + item.image + ')',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundSize: '100% 100%'
+                                }"
+                            ></div>
+                        </a> -->
+                        <a :href="item.url"><img :src="item.image" style="width: 100%; height: 100%" /></a>
                     </div>
                 </div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
         <!-- 标题 End -->
@@ -229,7 +244,7 @@
 import 'aos/dist/aos.css'
 import AOS from 'aos/dist/aos.js'
 import Swiper from 'swiper'
-import 'swiper/css/swiper.css';
+import 'swiper/dist/css/swiper.min.css';
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
@@ -256,11 +271,20 @@ export default {
         .then(res => {
             if (res.code == 200) {
                 this.swiperData = res.data;
-                // 初始化swiper
-                let mySwiper = new Swiper('.swiper-container', {
-                    autoplay: true,
-                    observer: true,
-                    observeParents: true
+                this.$nextTick(() => {
+                    // 初始化swiper
+                    let mySwiper = new Swiper('.swiper-container', {
+                        init: false,
+                        autoplay: 2000,
+                        loop: true,
+                        observer: true,
+                        observeParents: true,
+                        prevButton:'.swiper-button-prev',
+                        nextButton:'.swiper-button-next',
+                        pagination : '.swiper-pagination',
+                        paginationClickable :true,
+                    })
+                    mySwiper.init();
                 })
             }
         })
@@ -306,9 +330,8 @@ export default {
     }
     .home-top {
         background: rgb(188, 215, 196);
-        padding: 60px 0;
         @media (max-width: 980px) {
-            padding-top: 110px;
+            padding-top: 90px;
         }
         .container {
             padding-left: 0px;
@@ -317,6 +340,7 @@ export default {
         .flex {
             align-items: center;
             justify-content: space-between;
+            padding: 60px 0;
         }
         .masterImg {
             max-width: 208px;
@@ -612,6 +636,12 @@ export default {
         img {
             max-width: 100%;
         }
+    }
+    .swiper-button-prev {
+        left: 50px;
+    }
+    .swiper-button-next {
+        right: 50px;
     }
 }
 </style>
