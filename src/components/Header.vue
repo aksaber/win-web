@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header">
+        <div class="header" :style="{background: isDetailPage ? '#bcd7c4' : null, position: isDetailPage ? null : 'fixed'}">
             <div class="container flex pcHeader">
                 <div class="header-logo flex">
                     <a href="home.html">
@@ -52,10 +52,13 @@ export default {
             http: 'https://www.hibifsqm.com',
             // http: 'http://localhost:3020',
             headerData: [],
-            isDetailPage: false
+            isDetailPage: false,
+            scrollTop: 0
         }
     },
     mounted() {
+        // 监听滚动条的高度
+        window.addEventListener('scroll', this.handleScroll, true)
         // 获取导航栏跳转链接
         this.getHeader();
         // 如果是infoBlog.html博客详情页，header为绿色色调
@@ -64,6 +67,16 @@ export default {
         }
     },
     methods: {
+        handleScroll() {
+            this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            if (this.scrollTop > 200) {
+                // document.getElementsByClassName('pcHeader')[0].style.opacity = 0;
+                document.getElementsByClassName('pcHeader')[0].style.display = 'none';
+            } else {
+                // document.getElementsByClassName('pcHeader')[0].style.opacity = 1;
+                document.getElementsByClassName('pcHeader')[0].style.display = 'flex';
+            }
+        },
         showMenu() {
             this.isMenu = !this.isMenu;
         },
@@ -82,7 +95,13 @@ export default {
 
 <style lang="scss">
 .header {
-    background: rgb(188, 215, 196);
+    width: 100%;
+    height: 90px;
+    // position: fixed;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+    z-index: 99;
     background-size: cover;
     background-position: 50% 50%;
     @media only screen and (max-width: 768px) {
@@ -94,6 +113,7 @@ export default {
         align-items: center;
     }
     .pcHeader {
+        transition: all .3s;
         @media (max-width: 980px) {
             display: none;
         }

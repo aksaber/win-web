@@ -1,5 +1,5 @@
 <template>
-    <div id="home" >
+    <div id="home">
         <Header />
         <!-- <div class="home-paipan" v-html="paipan"></div> -->
         <!-- 标题 -->
@@ -7,6 +7,7 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
+                        <img src="../../assets/home-banner.jpg" style="width: 100%">
                         <div class="flex container">
                             <img src="../../assets/master.png" class="masterImg" data-aos="zoom-in" data-aos-duration="400">
                             <div class="home-top-right">
@@ -169,7 +170,7 @@
                             <img src="../../assets/home-fourTop.png">
                             <img src="../../assets/qmzb-title.png" style="margin-bottom: 10px">
                         </div>
-                        <div style="font-size: 28px; text-align: center">Hibi风水奇门工作坊--奇门遁甲简介</div>
+                        <strong style="font-size: 28px; text-align: center; font-weight: 400; display: block">Hibi风水奇门工作坊--奇门遁甲简介</strong>
                         <div style="width: 470px">
                             <p>1️.奇门遁甲古时用于布兵打仗称之为帝王之术, 现代生活用于生活百事预测, 趋吉避凶</p>
                             <p>2️.奇门遁甲是一个时空模型, 地盘不动, 神盘、天盘、人盘每个时辰（每2小时）转动一次, 得到的结果即发生变化, 发问时间很关键</p>
@@ -249,6 +250,17 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
     name: 'Home',
+    metaInfo() {
+        return {
+            meta: [
+                { property: 'og:title', content: '零基础学风水,奇门遁甲占卜,风水,占卜,Hibi风水奇门工作坊' },
+                { property: 'og:description', content: 'Hibi风水奇门工作坊,旨在帮助对易学文化有兴趣的朋友,提供一个学习交流的平台,零基础学风水和奇门遁甲百事占卜预测,趋吉避凶。' },
+                { name: 'description', content: 'Hibi风水奇门工作坊,旨在帮助对易学文化有兴趣的朋友,提供一个学习交流的平台,零基础学风水和奇门遁甲百事占卜预测,趋吉避凶。' },
+                { name: 'keywords', content: '零基础学风水,奇门遁甲占卜,风水,占卜,风水奇门,居家风水,生活风水,百事占卜,趋吉避凶,百事预测' },
+                { vmid: 'description', name: 'description', content: 'Hibi风水奇门工作坊,旨在帮助对易学文化有兴趣的朋友,提供一个学习交流的平台,零基础学风水和奇门遁甲百事占卜预测,趋吉避凶。' },
+            ]
+        }
+    },
     data() {
         return {
             paipan: '<b>',
@@ -643,5 +655,12 @@ export default {
     .swiper-button-next {
         right: 50px;
     }
+    // .swiper-slide {
+    //     height: 0px;
+    // }
+    // .swiper-slide-active {
+    //     height: auto!important;
+    //     // min-height: 31rem;/*这个根据自身的情况，可加可不加*/
+    // }
 }
 </style>

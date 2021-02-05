@@ -4,38 +4,38 @@
             <div class="home-footer-title">联系我：</div>
             <div class="flex" style="justify-content: space-between">
                 <div class="home-footer-flex home-footer-left">
-                    <div class="code-modal-hover" @click="showPic(1)">
+                    <div class="code-modal-hover" @click="showPic(1)" ref="nofollow">
                         <img src="../assets/douyin-icon.png">
                         抖音：hibifsqm
                         <div class="code-modal">
                             <img src="../assets/douyin-code.jpg" width="244">
                         </div>
                     </div>
-                    <div>
+                    <div ref="nofollow">
                         <img src="../assets/sina-icon.png">
                         微博：Hibi风水奇门工作坊
                     </div>
-                    <div>
+                    <div ref="nofollow">
                         <img src="../assets/youtube-icon.png">
                         YouTube：Hibi风水奇门工作坊
                     </div>
                 </div>
                 <div class="home-footer-flex home-footer-center">
-                    <div class="code-modal-hover" @click="showPic(2)">
+                    <div class="code-modal-hover" @click="showPic(2)" ref="nofollow">
                         <img src="../assets/wechat-icon.png">
                         微信号：caramel0808
                         <div class="code-modal">
                             <img src="../assets/wechat-code.jpg" width="227">
                         </div>
                     </div>
-                    <div class="code-modal-hover" @click="showPic(3)">
+                    <div class="code-modal-hover" @click="showPic(3)" ref="nofollow">
                         <img src="../assets/xcx-icon.png">
                         小程序：Hibi风水奇门工作坊
                         <div class="code-modal">
                             <img src="../assets/xcx-code.jpg" width="227">
                         </div>
                     </div>
-                    <div>
+                    <div ref="nofollow">
                         <img src="../assets/email-icon.png">
                         邮箱：hibifsqm@gmail.com
                     </div>

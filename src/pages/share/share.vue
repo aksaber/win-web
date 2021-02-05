@@ -18,15 +18,17 @@
                 :key="index"
                 @click="gotoBlog(item)"
             >
-                <div class="flex">
-                    <img
-                        :src="item.coverImage ? item.coverImage : require('../../assets/home-swiper.png')"
-                        style="border-radius: 50%; width: 160px; height: 160px"
-                    />
-                    <div class="share-item-right">
-                        <p :title="item.title">{{ item.title }}</p>
-                        <div class="share-item-intro">{{ item.intro }}</div>
-                    </div>
+                <div >
+                    <a :href="item.id | urlFilter" class="flex">
+                        <img
+                            :src="item.coverImage ? item.coverImage : require('../../assets/home-swiper.png')"
+                            style="border-radius: 50%; width: 160px; height: 160px"
+                        />
+                        <div class="share-item-right">
+                            <p :title="item.title">{{ item.title }}</p>
+                            <div class="share-item-intro">{{ item.intro }}</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -106,6 +108,11 @@ export default {
       showMore() {
             
       }
+  },
+  filters: {
+      urlFilter(id) {
+          return `https://www.hibifsqm.com/infoBlog.html?id=${id}`
+      }
   }
 }
 </script>
@@ -124,8 +131,10 @@ export default {
             width: 350px;
             height: 350px;
             border-radius: 50%;
+            margin-top: 50px;
         }
         .share-banner-title {
+            margin-top: 50px;
             >div {
                 font-size: 39px;
                 font-weight: 700;
@@ -191,7 +200,7 @@ export default {
             &:hover {
                 transform: scale(1.1);
             }
-            >.flex {
+            .flex {
                 margin: 30px 0;
                 align-items: center;
                 @media (max-width: 980px) {
@@ -250,5 +259,9 @@ export default {
             cursor: pointer;
         }
     }
+}
+a:hover, a:visited, a:link, a:active {
+    // 做到只设置一次，就可以使所有a标签的四种状态都和本身颜色保持一致，样式代码该怎么写
+    color: #000;
 }
 </style>
